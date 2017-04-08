@@ -5,7 +5,10 @@ exports.up = function(knex) {
     tbl.string('last_name').notNullable();
     tbl.string('photo').notNullable().defaultTo('https://s-media-cache-ak0.pinimg.com/originals/02/8c/43/028c43ed3eeab6c4a43181f517810501.jpg');
     tbl.text('phone').notNullable();
-    tbl.text('address').notNullable();
+    tbl.text('streetAddress').notNullable();
+    tbl.text('city').notNullable();
+    tbl.text('state').notNullable();
+    tbl.integer('zipcode').notNullable();
     tbl.text('email').notNullable();
     tbl.string('hashed_password').notNullable();
     tbl.integer('role_id').references('roles.id').onDelete("CASCADE");
