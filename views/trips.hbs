@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Galvanize Trips</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./javascripts/scripts.js">
+    </script>
+</head>
+
+<body>
+    <h1>Trips Table</h1>
+    <form action="/tacos" method="GET">
+        <label>Enter and ID: <input type="text" name="idToGet"></label>
+        <input type="submit">
+    </form>
+    {{#each trips}}
+        <div class="taContainer">
+            <h3>{{this.name}}</h4>
+        <img height="200px" width="200px" src="{{this.photo}}">
+        <p>{{this.cost}}</p>
+        <p>{{this.dates}}</p>
+        <p>{{this.description}}</p>
+      </div>
+      <button class="update" data-id="{{this.id}}">Update</button>
+      <button class="delete" data-id="{{this.id}}">Delete</button>
+      <div class="uBox uBox{{this.id}}"></div>
+    {{/each}}
+
+     <form action="/tacos" method="post">
+       <label>Trip Name: <input type="text" name="name"></label><br>
+       <label>Trip Picture URL: <input type="text" name="picture"></label><br>
+       <label>Trip Description: <input type="text" name="description"></label><br>
+       <input type="submit">
+     </form>
+  </body>
+</html>
