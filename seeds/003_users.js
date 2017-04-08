@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
                     streetAddress: "WV Van",
                     city: "Denver",
                     state: "Colorado",
-                    zipcode: "80302"
+                    zipcode: "80302",
                     email: "me@me.com",
                     role_id: 1,
                     hashed_password: '$2a$10$tmIQk84JLSW.ZBZNx47p2ORUYz3PNXjIgAqL0ghwCu1kcVw.21v.O'
@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
                     streetAddress: "Hammock",
                     city: "Boulder",
                     state: "Colorado",
-                    zipcode: "80208"
+                    zipcode: "80208",
                     email: "you@you.com",
                     role_id: 2,
                     hashed_password: '$2a$10$3UZpT8re4h9.a/gVuNF2qOYa2WC/5g6IWKOc5CrgTmDRk1Xy0m77a'
@@ -40,7 +40,7 @@ exports.seed = function(knex, Promise) {
                     streetAddress: "High up on the wall",
                     city: "Los Angeles",
                     state: "California",
-                    zipcode: "12345"
+                    zipcode: "12345",
                     email: "him@him.com",
                     role_id: 3,
                     hashed_password: '$2a$10$BXC5ZCQ7iBgb.HcdwXihbeMfRFtBOoOS7xbJeMoPuAUycCV260HCO'
