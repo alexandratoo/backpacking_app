@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
-  // console.log(req.body);
+  console.log(req.body, 'from login post');
   let email = req.body.email;
   let password = req.body.password;
   knex('users')
