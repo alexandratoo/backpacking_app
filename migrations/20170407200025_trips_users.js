@@ -3,6 +3,7 @@ exports.up = function(knex) {
     tbl.increments();
     tbl.integer('trip_id').references('trips.id').onDelete('CASCADE')
     tbl.integer('user_id').references('users.id').onDelete('CASCADE')
+    tbl.string('stripe_id').notNullable()
     tbl.timestamps(true, true);
   });
 };

@@ -5,10 +5,8 @@ const knex = require('../knex');
 const bcrypt = require('bcrypt');
 const humps = require('humps');
 const jwt = require('jsonwebtoken');
-const stripe = require('stripe')(
-  'sk_test_uBb9wXrF4pVd5stCgAFr5BaG'
-)
 require('dotenv');
+const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -51,14 +49,20 @@ router.get('/', function(req, res, next) {
 // })
 //
 router.post('/', (req, res, next) => {
-  console.log(req.body);
+  stripe.customers.create({
+    email: req.body.stripeEmail,
+    source: req.body.stripeToken
+  }).then((data) => {
+    knex('trips_users')
+    .insert(`${data.id}`);
+  })
   // res.end();
-  knex('trips_users')
-    .insert(req.body)
-    .then(() => {
+  // knex('trips_users')
+  //   .insert(req.body)
+  //   .then(() => {
       res.end();
       // res.redirect('/trips')
-    })
+    // })
 });
 //
 // router.put('/', (req, res, next) => {
