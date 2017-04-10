@@ -53,17 +53,33 @@ router.post('/', (req, res, next) => {
     email: req.body.stripeEmail,
     source: req.body.stripeToken
   }).then((data) => {
-    knex('trips_users')
-    .returning('*')
-    .insert({
-      trip_id: req.body.trip_id,
-      user_id: req.cookies.id,
-      stripe_id: data.id
+    let customerId = data.id;
+    return stripe.charges.create({
+      amount: req.body.trip_price * 100,
+      currency: "usd",
+      customer: customerId
     })
-    .then((addedData) => {
-      console.log(addedData);
+  .then((charge) => {
+      let chargeToAdd = {
+        trip_id: req.body.trip_id,
+        user_id: req.cookies.id,
+        stripe_id: customerId,
+        amount: (charge.amount).toString(),
+        charge_id: charge.id
+      }
+      knex('trips_users')
+      .insert(chargeToAdd)
+      .returning('*')
+      .then(function(data){
+        console.log(data)
+      res.end()})
     })
-    res.end();
+    // .then((theCharge) => {
+    //   console.log(theCharge);
+    //
+    // }).then(function(data){
+    //   console.log(data)
+    // res.end()})
   })
   // res.end();
   // knex('trips_users')

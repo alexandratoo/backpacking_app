@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
           description: 'Best trip I\'ve ever been on. Sweet Conyon.',
           dates: "4/14/17 - 4/22/17",
-          cost: "$1.00",
+          cost: "1",
           numberOfPeople: 0,
         },
         {
@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
           photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
           description: 'Totally rad mountain, yo',
           dates: "5/14/17 - 5/22/17",
-          cost: "$1,000,000",
+          cost: "80000",
           numberOfPeople: 0,
         },
         {
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
         photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
         description: 'It\'s a foriegn country',
         dates: "7/15/17 - 8/22/17",
-        cost: "$14",
+        cost: "14",
         numberOfPeople: 0,
       }
       ]);
