@@ -4,10 +4,44 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
+.content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.navbarDiv {
+  background-color: #133929;
+    opacity: .9;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.navText {
+  color: white;
+}
+
+.navbarFoot {
+  background-color: #133929;
+  height: 50px;
+}
+
+.footText {
+  vertical-align: middle;
+  display: block;
+  vertical-align: middle;
+}
 
 #login-dp{
     min-width: 250px;

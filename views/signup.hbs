@@ -4,16 +4,46 @@
 <head>
     <meta charset="utf-8">
     <title>Registration</title>
-    <!-- Latest compiled and minified CSS -->
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Bootstrap compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="container">
-        <form role="form" method="post">
-            <h2><h1>{{title}}</h1>
-<hr class="colorgraph">
-        <!-- <div class="row"> -->
+    <!-- Navbar   -->
+    <nav class="navbarDiv">
+        <a class="navbar-brand navText" href="./views/trips">G-Treks</a>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav-right">
+                <ul class="nav pull-right">
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle navText" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/">Login</a></li>
+                            <li><a href="/trips">Trips</a></li>
+                            <li><a href="#">Profile</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Registration Form -->
+    <div class="content">
+        <div class="container">
+            <form role="form" method="post">
+                <h2><h1>{{title}}</h1>
+</div>
+<div class="container">
 
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
@@ -79,60 +109,34 @@
 					</div>
 				</div>
       </div>
-      <div class="row">
+<!-- We may use javascript to confirm but as of now we will leave it commented -->
+      <!-- <div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
 						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="10">
 					</div>
 				</div>
-			</div>
+			</div> -->
       <div class="form-group">
-        <input type="file" name="photo" id="photo" class=" input-lg" placeholder="Personal Photo" tabindex="11">
+        <label for="photo">Personal Photo</label>
+        <input type="file" name="photo" id="photo" class=" input-lg" tabindex="11">
       </div>
-			<hr class="colorgraph">
 			<div class="row">
 				<div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="12"></div>
 			</div>
 
 		</form>
-	<!-- </div> -->
-<!-- </div>
-    <h1>{{title}}</h1>
-    <h3>{{error}}</h3>
-    <form method="post" action="/signup">
-      <label for="">First Name</label>
-      <input type="text" name="firstName" value="" id="firstName">
-      <br>
-      <label for="lastName">Last Name</label>
-      <input type="text" name="lastName" value="" id="lastName">
-      <br>
-      <label for="photo">Photo</label>
-      <input type="text" name="photo" value="" id="photo">
-      <br>
-      <label for="phone">Phone Number</label>
-      <input type="text" name="phone" value="" id="phone">
-      <br>
-      <label for="streetAddress">Street Address</label>
-      <input type="text" name="streetAddress" value="" id="streetAddress">
-      <br>
-      <label for="city">city</label>
-      <input type="text" name="city" value="" id="city">
-      <br>
-      <label for="state">State</label>
-      <input type="text" name="state" value="" id="state">
-      <br>
-      <label for="zip">Zipcode</label>
-      <input type="text" name="zip" value="" id="zip">
-      <br>
-      <label for="email">Email</label>
-      <input type="text" name="email" value="" id="email">
-      <br>
-      <label for="password">Password</label>
-      <input name="password" value="" id="password">
-      <br>
-      <button type="submit" >Submit</button>
-    </form>
-    <a href="/">Login</a> -->
+</div>
+</div>
+
+
+<!-- Footer -->
+<footer class="navbarFoot navbar-fixed-bottom">
+  <div class="container-fluid">
+      <a class="navbar-brand navText" href="./views/trips">G-Treks</a>
+    <p class="navText text-right">&copy; G-Treks Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
+  </div>
+</footer>
 
   </body>
 </html>
