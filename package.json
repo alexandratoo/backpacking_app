@@ -20,6 +20,7 @@
     "knex": "^0.12.9",
     "morgan": "~1.7.0",
     "pg": "^6.1.5",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "stripe": "^4.17.1"
   }
 }

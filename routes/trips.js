@@ -5,6 +5,9 @@ const knex = require('../knex');
 const bcrypt = require('bcrypt');
 const humps = require('humps');
 const jwt = require('jsonwebtoken');
+const stripe = require('stripe')(
+  'sk_test_uBb9wXrF4pVd5stCgAFr5BaG'
+)
 require('dotenv');
 
 /* GET home page. */
