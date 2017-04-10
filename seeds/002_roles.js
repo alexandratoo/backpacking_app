@@ -9,5 +9,8 @@ exports.seed = function(knex, Promise) {
         {id: 2, role: 'leader'},
         {id: 3, role: 'admin'}
       ]);
+    })
+    .then(() => {
+      return knex.raw("SELECT setval('roles_id_seq', (SELECT MAX(id) FROM roles));")
     });
 };

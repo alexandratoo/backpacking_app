@@ -30,7 +30,8 @@ router.post('/', validateCreate, validateEmail, (req, res, next) => {
                 state: data.state,
                 zipcode: data.zip,
                 email: data.email,
-                hashed_password: data.hashed_password
+                hashed_password: data.hashed_password,
+                role_id: 1
             }
             insertUser(userToAdd)
                 .then((data) => {
@@ -41,6 +42,7 @@ router.post('/', validateCreate, validateEmail, (req, res, next) => {
                     res.cookie('token', token, {
                         httpOnly: true
                     })
+                    res.cookie('id', data[0].id)
                     // May change later. for now redirects to trips
                     // res.redirect(`users/${data[0].id}`)
                     res.redirect('trips')

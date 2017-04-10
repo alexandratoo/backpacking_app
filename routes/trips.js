@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const knex = require('../knex.js');
+const boom = require('boom');
+const knex = require('../knex');
 const bcrypt = require('bcrypt');
+const humps = require('humps');
 const jwt = require('jsonwebtoken');
+require('dotenv');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,12 +18,12 @@ router.get('/', function(req, res, next) {
   //   let user = decoded.user;
   //   console.log(user.username);
           knex('trips')
-            .select('id', 'name', 'photo', 'dates', 'cost', 'description')
+            .select('id', 'name', 'photo', 'dates', 'cost', 'description', 'numberOfPeople')
             .then((tripsFromKnex) => {
               res.render('trips', {
-                trips: tripsFromKnex
+                trips: tripsFromKnex,
+                userId: req.cookies.id
               });
-
           })
   //           })
   //       } else {
@@ -44,13 +47,16 @@ router.get('/', function(req, res, next) {
 //     })
 // })
 //
-// router.post('/', (req, res, next) => {
-//   knex('trips')
-//     .insert(req.body)
-//     .then(() => {
-//       res.redirect('/trips')
-//     })
-// })
+router.post('/', (req, res, next) => {
+  console.log(req.body);
+  // res.end();
+  knex('trips_users')
+    .insert(req.body)
+    .then(() => {
+      res.end();
+      // res.redirect('/trips')
+    })
+});
 //
 // router.put('/', (req, res, next) => {
 //   let newInfo = req.body;

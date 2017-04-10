@@ -6,20 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Bootstrap 101 Template</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-    <meta charset="utf-8">
-    <title>Galvanize Trips</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./javascripts/scripts.js">
-    </script>
-
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./js/scripts.js"></script>
+  <title>Galvanize Trips</title>
 </head>
 
 <body>
+    <div id='userId' class='hidden'>{{userId}}</div>
     <h1>Trips Table</h1>
     <form action="/trips" method="GET">
         <label>Enter and ID: <input type="text" name="idToGet"></label>
@@ -29,11 +25,12 @@
         <div class="taContainer">
             <h3>{{this.name}}</h4>
         <img height="200px" width="200px" src="{{this.photo}}">
-        <p>{{this.cost}}</p>
-        <p>{{this.dates}}</p>
-        <p>{{this.description}}</p>
+        <p>Pay this yo: {{this.cost}}</p>
+        <p>Trip Dates: {{this.dates}}</p>
+        <p>About this trip: {{this.description}}</p>
+        <p>People Going: {{this.numberOfPeople}}</p>
       </div>
-      <button class="update" data-id="{{this.id}}">Update</button>
+      <button class="update" data-id="{{this.id}}">Join Trip</button>
       <button class="delete" data-id="{{this.id}}">Delete</button>
       <div class="uBox uBox{{this.id}}"></div>
     {{/each}}
@@ -46,6 +43,5 @@
      </form>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
-   <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
