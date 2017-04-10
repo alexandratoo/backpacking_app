@@ -22,17 +22,6 @@
 
 <body class="container">
     <div id='userId' class='hidden'>{{userId}}</div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content text-center">
-                <form action="/trips" method="POST">
-                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="999" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto" data-zip-code="true">
-                        </script>
-                </form>
-            </div>
-        </div>
-    </div>
     <h1>Trips Table</h1>
     <form action="/trips" method="GET">
         <label>Enter an ID: <input type="text" name="idToGet"></label>
@@ -46,9 +35,21 @@
         <p>Trip Dates: {{this.dates}}</p>
         <p>About this trip: {{this.description}}</p>
         <p>People Going: {{this.numberOfPeople}}</p>
-        <button class="btn btn-primary update" data-toggle="modal" data-target=".bd-example-modal-lg" data-id="{{this.id}}">Join Trip</button>
+        <button class="btn btn-primary update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
         <button class="btn btn-primary delete" data-id="{{this.id}}">Delete</button>
         <div class="uBox uBox{{this.id}}"></div>
+      </div>
+      <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content text-center">
+            <form action="/trips" method="POST">
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="999" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto" data-zip-code="true">
+              </script>
+              <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
+            </form>
+          </div>
+        </div>
       </div>
     {{/each}}
      <form class="container" action="/trips" method="post">

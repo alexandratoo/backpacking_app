@@ -54,13 +54,21 @@ router.post('/', (req, res, next) => {
     source: req.body.stripeToken
   }).then((data) => {
     knex('trips_users')
-    .insert(`${data.id}`);
+    .returning('*')
+    .insert({
+      trip_id: req.body.trip_id,
+      user_id: req.cookies.id,
+      stripe_id: data.id
+    })
+    .then((addedData) => {
+      console.log(addedData);
+    })
+    res.end();
   })
   // res.end();
   // knex('trips_users')
   //   .insert(req.body)
   //   .then(() => {
-      res.end();
       // res.redirect('/trips')
     // })
 });
