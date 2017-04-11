@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Registration</title>
+    <title>Signup</title>
 
     <!-- Personal CSS -->
     <link rel="stylesheet" href="./stylesheets/style.css">
@@ -15,6 +15,9 @@
     <!-- Bootsrap JS -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Boostrap Mobile Device Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -56,14 +59,16 @@
     <!-- <div class="card">
         <div class="card-block"> -->
 
+<main>
+
+<div class="card">
+  <div class="card-block">
+
 
     <div class="content">
         <div class="container">
-            <form role="form" method="post">
-                <h1 class="title">{{title}}</h1>
-        </div>
-        <div class="container">
-
+          <form role="form" method="post">
+              <h1 class="title">{{title}}</h1>
             <!-- FIRST NAME -->
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -175,14 +180,23 @@
     </div>
     <!-- 'Content class div' -->
 
+  </div>
+  <!-- Card block class div -->
+
+</div>
+<!-- Card class div -->
+
+</main>
+
     <!-- FOOTER -->
     <!-- Ensure you add google fonts to 'head' if copying footer -->
 
-    <footer class="navbarFoot navbar-sticky-bottom">
-      <div class="container-fluid">
-          <a class="navbar-brand navText" href="./trips">TRAK</a>
-        <p class="navText text-right">&copy; TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
-      </div>
+    <footer class="footer">
+    <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
+        <p class="footText text-right">&copy; TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
+
+
+
     </footer>
 
 </body>
