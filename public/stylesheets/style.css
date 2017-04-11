@@ -1,5 +1,12 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: auto;
   height: 100%;
   width: 100%;
   margin: 0%;
@@ -11,34 +18,9 @@ a {
 }
 
 
-
-body > .container {
-  /*padding-top: 50px;*/
-}
-
 /*===================*/
 /*NAVBAR AND FOOTER*/
 /*===================*/
-
-/*.navbarDiv {
-  background-color: #133929;
-  opacity: .9;
-  height: 55px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1;
-}*/
-
-/*.navText {
-  color: white;
-  /*padding: 24px;*/
-}*/
-
-.logo {
-  font-family: 'Cabin Sketch', arial;
-  font-size: 24px;
-}
 
 header {
   background-color: #133929;
@@ -115,32 +97,59 @@ footer {
 /*SIGNUP PAGE*/
 /*===================*/
 
-form {
-  padding: 10px;
+body::before {
+  background: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/0MHI047FWY.jpg) no-repeat center center fixed;
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
 }
+
 
 label {
   display: inline-block;
   float:left;
 }
 
-.card-block{
-  display: block;
-  margin: auto
-  border: 2px solid black;
-}
-
-
 .content {
+  margin: auto;
   padding-top: 60px;
   padding-bottom: 60px;
-
-  /*display: block;
-  margin: auto;*/
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
 }
+
+.card-block{
+  display: block;
+  margin: 20px auto;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  background-color: hsla(360, 100%, 100%, 0.5);
+}
+
+.formInput {
+  width: 92%;
+  display: block;
+  margin: auto;
+}
+
+.formBtn {
+  width: 40%;
+  display: block;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+
+
 /*=================*/
 /*trips*/
 /*==================*/
