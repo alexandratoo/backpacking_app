@@ -7,9 +7,6 @@ require('dotenv');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  // console.log(bcrypt.hashSync('password1', 10));
-  // console.log(bcrypt.hashSync('password2', 10));
-  // console.log(bcrypt.hashSync('password3', 10));
   res.render('login');
 });
 
@@ -27,6 +24,7 @@ router.post('/', (req, res, next) => {
         if(result){
           let token = jwt.sign({user:user}, process.env.JWT_SECRET);
           res.cookie('session', token);
+          res.cookie('role', user.role_id)
           if (user.role_id === 3) {
             res.redirect('/admin')
           }

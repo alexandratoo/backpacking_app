@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
         trips: tripsFromKnex,
         userId: req.cookies.id
       });
-  })
+    })
 });
 
 router.post('/', function(req, res, next) {

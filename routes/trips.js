@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   //   let user = decoded.user;
   //   console.log(user.username);
           knex('trips')
-            .select('id', 'name', 'photo', 'dates', 'cost', 'description', 'numberOfPeople')
+            .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
             .then((tripsFromKnex) => {
               res.render('trips', {
                 trips: tripsFromKnex,
