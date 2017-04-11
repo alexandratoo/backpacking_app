@@ -49,6 +49,8 @@ router.get('/', function(req, res, next) {
 // })
 //
 router.post('/', (req, res, next) => {
+
+  console.log(req.body);
   stripe.customers.create({
     email: req.body.stripeEmail,
     source: req.body.stripeToken

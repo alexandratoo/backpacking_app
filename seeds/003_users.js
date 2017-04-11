@@ -45,6 +45,20 @@ exports.seed = function(knex, Promise) {
                     role_id: 3,
                     hashed_password: '$2a$10$BXC5ZCQ7iBgb.HcdwXihbeMfRFtBOoOS7xbJeMoPuAUycCV260HCO'
                 },
+                {
+                    id: 4,
+                    first_name: 'Ryan',
+                    last_name: 'Frazier',
+                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+                    phone: '317-225-8384',
+                    street_address: "2225 Walnut Street",
+                    city: "Boulder",
+                    state: "Colorado",
+                    zipcode: "80302",
+                    email: "ryanpfrazier@gmail.com",
+                    role_id: 3,
+                    hashed_password: '$2a$12$YKuFFU40Mg1oUU4AjtNvf.Y6qjM.y5/yt.SOD0E2RdlX5l9mUSZwW'
+                }
             ]);
         })
         .then(() => {
