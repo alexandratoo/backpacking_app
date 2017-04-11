@@ -7,14 +7,25 @@ const jwt = require('jsonwebtoken');
 require('dotenv');
 
 router.get('/', function(req, res, next) {
-  knex('trips')
-    .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
-    .then((tripsFromKnex) => {
-      res.render('admin', {
-        trips: tripsFromKnex,
-        userId: req.cookies.id
-      });
-    })
+  if (req.cookies.role) {
+    let role = jwt.verify(req.cookies.role, process.env.JWT_SECRET).role;
+    if (role !== 3) {
+      res.redirect('/')
+    }
+    else {
+    knex('trips')
+      .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
+      .then((tripsFromKnex) => {
+        res.render('admin', {
+          trips: tripsFromKnex,
+          userId: req.cookies.id
+        });
+      })
+    }
+  }
+  else {
+    res.redirect('/')
+  }
 });
 
 router.post('/', function(req, res, next) {

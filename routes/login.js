@@ -24,8 +24,9 @@ router.post('/', (req, res, next) => {
         if(result){
           let token = jwt.sign({user:user}, process.env.JWT_SECRET);
           res.cookie('session', token);
-          res.cookie('role', user.role_id)
           if (user.role_id === 3) {
+            let roleToken = jwt.sign({role:user.role_id}, process.env.JWT_SECRET);
+            res.cookie('role', roleToken);
             res.redirect('/admin')
           }
           else {
