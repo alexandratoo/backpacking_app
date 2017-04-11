@@ -19,11 +19,12 @@ router.post('/', (req, res, next) => {
     .where('email', email)
     .first()
     .then((user) => {
-      console.log(user);
+      console.log('user', user);
       bcrypt.compare(password, user.hashed_password, (err, result) => {
         if(result){
           let token = jwt.sign({user:user}, process.env.JWT_SECRET);
           res.cookie('session', token);
+
           if (user.role_id === 3) {
             let roleToken = jwt.sign({role:user.role_id}, process.env.JWT_SECRET);
             res.cookie('role', roleToken);

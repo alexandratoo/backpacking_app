@@ -17,43 +17,28 @@ body > .container {
   padding-top: 50px;
 }
 
-.containerbutton1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-}
-
-.content {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  display: block;
-  width: 80%;
-  margin: auto;
-}
+/*===================*/
+/*NAVBAR AND FOOTER*/
+/*===================*/
 
 .navbarDiv {
   background-color: #133929;
-    opacity: .9;
-    height: 55px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1;
+  opacity: .9;
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
-/*.card {
-  width: 41%;
-  border: 2px solid black;
-  margin: auto;
-}*/
 
-form {
-  padding: 10px;
-}
 .navText {
   color: white;
   padding: 24px;
+}
+
+.logo {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 24px;
 }
 
 .navbarFoot {
@@ -72,37 +57,52 @@ form {
   vertical-align: middle;
 }
 
-.logo {
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 24px;
+.liFoot {
+  display: inline-block;
+}
+/*===================*/
+/*LOGIN PAGE*/
+/*===================*/
+
+.containerbutton1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+/*===================*/
+/*REGISTRATION PAGE*/
+/*===================*/
+
+form {
+  padding: 10px;
 }
 
 label {
   float:left;
 }
 
-li {
-  display: inline-block;
+.content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  /*display: block;
+  width: 80%;
+  margin: auto;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
-
-/*.background-image {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;
-
-  display: block;
-  background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG');
-  width: 1200px;
-  height: 800px;
-
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-}*/
-
+/*===================*/
+/*OTHER*/
+/*===================*/
 
 #login-dp{
     min-width: 250px;

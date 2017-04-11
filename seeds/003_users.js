@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
                     zipcode: "12345",
                     email: "him@him.com",
                     role_id: 3,
-                    hashed_password: '$2a$10$BXC5ZCQ7iBgb.HcdwXihbeMfRFtBOoOS7xbJeMoPuAUycCV260HCO'
+                    hashed_password: '$2a$10$E728pOrOB8jtibABLG8mUeERpTryQQdwUG4P4XOgFpfW44Du2tnOe'
                 },
                 {
                     id: 4,
