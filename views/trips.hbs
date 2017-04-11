@@ -23,7 +23,7 @@
 
 <body class="container">
     <div id='userId' class='hidden'>{{userId}}</div>
-    <h1>Trips Table</h1>
+    <h1 class='header text-center'><'Tantalzing Treks with Trip Trak'>
 
     {{#each trips}}
         <!-- <div class="taContainer col-sm-4"> -->
@@ -34,13 +34,13 @@
             <hr> -->
 
             <div class="containerjumbo" >
-      <h3 class="display-3">{{this.name}}</h3>
+      <h3 class="display-3 text-center">{{this.name}}</h3>
       <p class="lead">{{this.description}}</p>
       <hr class="my-4">
       <img src="{{this.photo}}" class="tripImg img-fluid" alt="Responsive image">>
-      <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </p>
+      <!-- <p class="lead"> -->
+        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+      <!-- </p> -->
     </div>
 
         <!-- <div class="card" id="tripscard">
