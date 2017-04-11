@@ -2,8 +2,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0%;
+  padding: 0%;
 }
 
 a {
@@ -13,14 +13,14 @@ a {
 
 
 body > .container {
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 
 /*===================*/
 /*NAVBAR AND FOOTER*/
 /*===================*/
 
-.navbarDiv {
+/*.navbarDiv {
   background-color: #133929;
   opacity: .9;
   height: 55px;
@@ -28,16 +28,26 @@ body > .container {
   position: fixed;
   top: 0;
   z-index: 1;
-}
+}*/
 
-.navText {
+/*.navText {
   color: white;
   /*padding: 24px;*/
-}
+}*/
 
 .logo {
   font-family: 'Cabin Sketch', arial;
   font-size: 24px;
+}
+
+header {
+  background-color: #133929;
+  position: fixed;
+  opacity: .9;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  z-index: 1;
 }
 
 footer {
@@ -47,13 +57,38 @@ footer {
   overflow: hidden;
 }
 
+.navMenu {
+  font-family: 'Cabin Sketch', arial;
+  font-size: 24px;
+  display: inline-block;
+  float: right;
+  padding-right: 30px;
+  text-decoration: none;
+  color: #F6F5E4;
+  padding: 10px 30px 0 10px;
+
+}
+
+.navMenu:hover {
+  text-decoration: none;
+  color: #DFCA9F;
+}
+
+
 .navbarTitle {
   font-family: 'Cabin Sketch', arial;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 28px;
   padding-left: 10px;
   color: #F6F5E4;
   display: inline-block;
+  text-decoration: none;
+  /*margin: auto 0 auto 10px;*/
+  padding: 10px 0 0 10px;
+}
+.navbarTitle:hover {
+  text-decoration: none;
+  color: #DFCA9F;
 }
 
 .footText {
@@ -62,7 +97,7 @@ footer {
   display: inline-block;
   float: right;
   margin: auto 10px auto 0;
-  padding: auto 20px auto 10px;
+  padding: 20px 10px;
 }
 
 /*===================*/
@@ -77,7 +112,7 @@ footer {
 }
 
 /*===================*/
-/*REGISTRATION PAGE*/
+/*SIGNUP PAGE*/
 /*===================*/
 
 form {
@@ -85,13 +120,16 @@ form {
 }
 
 label {
+  display: inline-block;
   float:left;
 }
 
-.card {
+.card-block{
   display: block;
-  margin: auto;  
+  margin: auto
+  border: 2px solid black;
 }
+
 
 .content {
   padding-top: 60px;
@@ -122,7 +160,15 @@ img {
   padding: 20px;
   min-height: 200px;
 }
-
+.lead {
+  text: 14px;
+}
+#head {
+  margin-top: 80px;
+}
+#bottom{
+  margin-top: 80px;
+}
 /*===================*/
 /*OTHER*/
 /*===================*/
