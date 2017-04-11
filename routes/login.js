@@ -11,7 +11,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
-  console.log(req.body, 'from login post');
   let email = req.body.email;
   let password = req.body.password;
   knex('users')
@@ -19,7 +18,6 @@ router.post('/', (req, res, next) => {
     .where('email', email)
     .first()
     .then((user) => {
-      console.log('user', user);
       bcrypt.compare(password, user.hashed_password, (err, result) => {
         if(result){
           let token = jwt.sign({user:user}, process.env.JWT_SECRET);
@@ -38,7 +36,6 @@ router.post('/', (req, res, next) => {
           res.render('login', {error: 'Please anter a valid email and password'});
         }
       })
-      // res.render('login')
     })
 })
 

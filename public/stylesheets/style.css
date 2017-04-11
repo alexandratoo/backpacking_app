@@ -1,17 +1,16 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   text-decoration: none;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
+
 
 body > .container {
   padding-top: 50px;
@@ -33,33 +32,39 @@ body > .container {
 
 .navText {
   color: white;
-  padding: 24px;
+  /*padding: 24px;*/
 }
 
 .logo {
-  font-family: 'Cabin Sketch', cursive;
+  font-family: 'Cabin Sketch', arial;
   font-size: 24px;
 }
 
-.navbarFoot {
+footer {
   background-color: #133929;
   opacity: .9;
-      position: relative;
-      /*height: 60px;*/
-      width: 100%;
-      margin-bottom: 0;
-      padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbarTitle {
+  font-family: 'Cabin Sketch', arial;
+  font-weight: 700;
+  font-size: 34px;
+  padding-left: 10px;
+  color: #F6F5E4;
+  display: inline-block;
 }
 
 .footText {
-  vertical-align: middle;
-  display: block;
-  vertical-align: middle;
+  font-size: 14px;
+  color: #F6F5E4;
+  display: inline-block;
+  float: right;
+  margin: auto 10px auto 0;
+  padding: auto 20px auto 10px;
 }
 
-.liFoot {
-  display: inline-block;
-}
 /*===================*/
 /*LOGIN PAGE*/
 /*===================*/
@@ -70,7 +75,6 @@ body > .container {
   align-items: center;
   flex-direction: column;
 }
-
 
 /*===================*/
 /*REGISTRATION PAGE*/
@@ -84,22 +88,41 @@ label {
   float:left;
 }
 
+.card {
+  display: block;
+  margin: auto;  
+}
+
 .content {
   padding-top: 60px;
   padding-bottom: 60px;
+
   /*display: block;
-  width: 80%;
   margin: auto;*/
-  display: flex;
+  /*display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  align-items: center;*/
 }
+/*=================*/
+/*trips*/
+/*==================*/
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.tripImg {
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+  height: 400px;
+  width: auto;
+}
+.containerjumbo {
+  padding: 20px;
+  min-height: 200px;
+}
+
 /*===================*/
 /*OTHER*/
 /*===================*/
