@@ -22,29 +22,16 @@ $('document').ready(function() {
 
   $(".updateButton").on("click", function(event) {
     event.preventDefault();
-    // let i = $(this)[0];
-    // console.log(i);
-    // let array = [];
-    // for (let j = 0; j < i.length - 1; j++) {
-    //   array.push(i[j].value);
-    // }
-    // let data = {
-    //   id: array[0],
-    //   name: array[1],
-    //   photo: array[2],
-    //   description: array[3],
-    //   start_date: array[4],
-    //   end_date: array[5],
-    //   cost: array[6],
-    //   numberOfPeople: array[7]
-    // }
     let data = $(event.target).closest('form').serialize();
+    console.log(data);
     $.ajax({
       method: "PUT",
       url: "/admin",
       data: data,
-      success: function(ryan) {
-          console.log('ryan');
+      success: function(done) {
+        if(done){
+          location.reload();
+        }
       },
       error: function(error) {
         console.log(error);
@@ -61,8 +48,10 @@ $('document').ready(function() {
       data: {
         id: id
       },
-      success: function(data) {
-        console.log('success');
+      success: function(done) {
+        if(done) {
+          location.reload();
+        }
       },
       error: function(error) {
         console.log(error);

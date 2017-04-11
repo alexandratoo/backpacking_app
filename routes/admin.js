@@ -49,11 +49,8 @@ router.put('/', function(req, res, next) {
     .returning('*')
     .update(req.body)
   .then((data) => {
-    console.log(data);
+    res.status(200).send(true)
   })
-  .then(
-  res.render('admin')
-  )
 })
 
 router.delete('/', function(req, res, next) {
@@ -61,7 +58,7 @@ router.delete('/', function(req, res, next) {
     .where('id', req.body.id)
     .del()
     .then(
-      res.render('admin')
+      res.status(200).send(true)
     )
 });
 
