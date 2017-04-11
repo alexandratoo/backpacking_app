@@ -10,14 +10,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // if (req.query.idToGet) {
-  //   let query = req.query.idToGet;
-  //   res.redirect(`/trips/${query}`)
-  // }
-  // if(req.cookies.session){
-  //   let decoded = jwt.verify(req.cookies.session, 'EGGS');
-  //   let user = decoded.user;
-  //   console.log(user.username);
+
           knex('trips')
             .select('id', 'name', 'photo', 'dates', 'cost', 'description', 'numberOfPeople')
             .then((tripsFromKnex) => {
@@ -26,15 +19,6 @@ router.get('/', function(req, res, next) {
                 userId: req.cookies.id
               });
           })
-  //           })
-  //       } else {
-  //         res.redirect('/');
-  //       }
-  //     })
-  // } else {
-  //   res.redirect('/');
-  // }
-
 });
 //
 // router.get('/:id', (req, res, next) => {
