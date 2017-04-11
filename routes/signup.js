@@ -5,6 +5,8 @@ const knex = require('../knex');
 const bcrypt = require('bcrypt');
 const humps = require('humps');
 const jwt = require('jsonwebtoken');
+const ev = require('express-validation');
+const validations = require('../validations/signup');
 require('dotenv');
 
 router.get('/', function(req, res, next) {
@@ -13,7 +15,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.post('/', validateCreate, validateEmail, (req, res, next) => {
+router.post('/', validateCreate, validateEmail, ev(validations.post), (req, res, next) => {
     bcrypt.hash(req.body.password, 12)
         .then((data) => {
             delete req.body.password

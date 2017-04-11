@@ -5,20 +5,21 @@ const knex = require('../knex');
 const bcrypt = require('bcrypt');
 const humps = require('humps');
 const jwt = require('jsonwebtoken');
+const ev = require('express-validation');
+const validations = require('../validations/trips');
 require('dotenv');
 const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
-          knex('trips')
-            .select('id', 'name', 'photo', 'dates', 'cost', 'description', 'numberOfPeople')
-            .then((tripsFromKnex) => {
-              res.render('trips', {
-                trips: tripsFromKnex,
-                userId: req.cookies.id
-              });
-          })
+  knex('trips')
+    .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
+    .then((tripsFromKnex) => {
+      res.render('trips', {
+        trips: tripsFromKnex,
+        userId: req.cookies.id
+      });
+  })
 });
 //
 // router.get('/:id', (req, res, next) => {
