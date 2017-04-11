@@ -50,10 +50,28 @@ $('document').ready(function() {
         console.log(error);
       }
     });
-  })
+  });
+
+  $(".deleteButton").on("click", function() {
+    let id = (this.id).slice(1);
+    console.log(id);
+    $.ajax({
+      method: "DELETE",
+      url: "/admin",
+      data: {
+        id: id
+      },
+      success: function(data) {
+        console.log('success');
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  });
 
   $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
+    $('#myInput').focus();
   });
 
 });

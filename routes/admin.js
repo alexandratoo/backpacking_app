@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
     else {
     knex('trips')
       .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
+      .orderBy('id', 'asc')
       .then((tripsFromKnex) => {
         res.render('admin', {
           trips: tripsFromKnex,
@@ -38,12 +39,11 @@ router.post('/', function(req, res, next) {
       console.log(data);
     })
     .then(
-      res.redirect('admin')
+      res.render('admin')
     );
 });
 
 router.put('/', function(req, res, next) {
-  console.log(req.body)
   knex('trips')
     .where('id', req.body.id)
     .returning('*')
@@ -57,17 +57,12 @@ router.put('/', function(req, res, next) {
 })
 
 router.delete('/', function(req, res, next) {
-  // knex('trips')
-  //   .where('id', req.body.id)
-  //   .returning('*')
-  //   .del()
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  console.log(req.body)
+  knex('trips')
+    .where('id', req.body.id)
+    .del()
     .then(
-      res.end()
-    );
-})
+      res.render('admin')
+    )
+});
 
 module.exports = router;
