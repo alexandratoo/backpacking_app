@@ -29,8 +29,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
-  res.redirect('admin');
+  knex('trips')
+    .where('id', req.body.id)
+    .returning('*')
+    .update(req.body)
+  .then((data) => {
+    console.log(data);
+  }).then(
+    res.redirect('admin')
+  );
 })
 
 module.exports = router;
