@@ -33,7 +33,38 @@ exports.seed = function(knex, Promise) {
         end_date: "2017-07-22",
         cost: "875",
         numberOfPeople: 0,
-      }
+      },
+      {
+        id: 4,
+      name: 'Mount Ranier',
+      photo: 'https://cdn.pixabay.com/photo/2013/02/11/10/54/mount-ranier-80477__340.jpg',
+      description: "This hike begins in the famous Paradise Meadows of Mt. Rainier, a subalpine wonderland of flowers and fragile meadows.  A full day - and a lot of elevation - takes us to Camp Muir, the basecamp for mountaineers aiming to summit Rainier, at over 10,000 feet. If the weather cooperates, we could get views of Mt. Hood, Mt. St. Helens, and Mt. Adams",
+      start_date: "2017-07-15",
+      end_date: "2017-07-31",
+      cost: "445",
+      numberOfPeople: 0,
+    },
+    {
+      id: 5,
+    name: 'Machu Picchu',
+    photo: 'https://cdn.pixabay.com/photo/2012/04/26/22/48/machu-picchu-43387__340.jpg',
+    description: 'Peru is home to the most famous archeological site in South America, and one of the most famous in the world: Machu Picchu. A deeply fascinating, mysterious, ancient city that mesmerizes nearly all its visitors, "The Lost City of the Incas" is a place every avid traveler must visit. ',
+    start_date: "2017-07-15",
+    end_date: "2017-07-22",
+    cost: "3660",
+    numberOfPeople: 0,
+  },
+  {
+    id: 6
+    ,
+  name: 'Kilimanjaro Trek',
+  photo: 'https://cdn.pixabay.com/photo/2014/05/12/18/17/kilimanjaro-342696__340.jpg',
+  description: 'Kilimanjaro!!! Join us for an unforgettable hiking adventure on Mount Kilimanjaro! Known as "the Roof of Africa" and towering over its surrounding valleys at an astounding elevation of 19,340 feet, Kilimanjaro is one of the "7 Summits" of the world!',
+  start_date: "2017-07-15",
+  end_date: "2017-07-22",
+  cost: "3990",
+  numberOfPeople: 0,
+}
       ]);
     })
     .then(() => {
