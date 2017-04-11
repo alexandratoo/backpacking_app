@@ -43,6 +43,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/', function(req, res, next) {
+  console.log(req.body)
   knex('trips')
     .where('id', req.body.id)
     .returning('*')
@@ -51,8 +52,8 @@ router.put('/', function(req, res, next) {
     console.log(data);
   })
   .then(
-    res.redirect('admin')
-  );
+  res.render('admin')
+  )
 })
 
 router.delete('/', function(req, res, next) {
@@ -65,7 +66,7 @@ router.delete('/', function(req, res, next) {
   //   })
   console.log(req.body)
     .then(
-      res.redirect('admin')
+      res.end()
     );
 })
 
