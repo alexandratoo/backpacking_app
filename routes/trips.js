@@ -5,6 +5,8 @@ const knex = require('../knex');
 const bcrypt = require('bcrypt');
 const humps = require('humps');
 const jwt = require('jsonwebtoken');
+const ev = require('express-validation');
+const validations = require('../validations/trips');
 require('dotenv');
 const stripe = require('stripe')(process.env.STRIPE_SECRET)
 

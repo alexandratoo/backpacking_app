@@ -4,6 +4,8 @@ const boom = require('boom');
 const knex = require('../knex');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const ev = require('express-validation');
+const validations = require('../validations/admin');
 require('dotenv');
 
 router.get('/', function(req, res, next) {
