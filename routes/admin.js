@@ -42,4 +42,17 @@ router.post('/', function(req, res, next) {
   );
 })
 
+// router.post('/', function(req, res, next) {
+//   knex('trips')
+//     .where('id', req.body.id)
+//     .returning('*')
+//     .update(req.body)
+//   .then((data) => {
+//     console.log(data);
+//   }).then(
+//     res.redirect('admin')
+//   );
+// })
+
+
 module.exports = router;
