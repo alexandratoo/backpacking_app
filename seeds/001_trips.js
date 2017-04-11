@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           description: 'Best trip I\'ve ever been on. Sweet Conyon.',
           dates: "4/14/17 - 4/22/17",
           cost: "$1.00",
-          numberOfPeople: 0,
+          numberOfPeople: 0
         },
         {
           id: 2,
@@ -20,7 +20,7 @@ exports.seed = function(knex, Promise) {
           description: 'Totally rad mountain, yo',
           dates: "5/14/17 - 5/22/17",
           cost: "$1,000,000",
-          numberOfPeople: 0,
+          numberOfPeople: 0
         },
         {
           id: 3,
@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
         description: 'It\'s a foriegn country',
         dates: "7/15/17 - 8/22/17",
         cost: "$14",
-        numberOfPeople: 0,
+        numberOfPeople: 0
       }
       ]);
     })

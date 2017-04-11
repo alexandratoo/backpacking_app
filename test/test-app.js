@@ -1,188 +1,279 @@
 process.env.NODE_ENV = 'test';
 
-const { suite, test } = require('mocha');
 const request = require('supertest');
 const expect = require('chai').expect;
 const app = require('../app');
 const knex = require('../knex');
 
+beforeEach(done => {
+    Promise.all([
+        knex('trips').insert({
+            id: 1,
+            name: 'Paria Canyon',
+            photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+            description: 'Best trip I\'ve ever been on. Sweet Conyon.',
+            dates: "4/14/17 - 4/22/17",
+            cost: "$1.00",
+            numberOfPeople: 0
+        }),
+        knex('trips').insert({
+            id: 2,
+            name: 'Vestal Peak',
+            photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+            description: 'Totally rad mountain, yo',
+            dates: "5/14/17 - 5/22/17",
+            cost: "$1,000,000",
+            numberOfPeople: 0
+        }),
+        knex('trips').insert({
+            id: 3,
+            name: 'Thailand',
+            photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+            description: 'It\'s a foriegn country',
+            dates: "7/15/17 - 8/22/17",
+            cost: "$14",
+            numberOfPeople: 0
+        })
+    ]).then(() => done());
+});
 
-// describe('GET /trips', () => {
-//     it('responds with JSON', done => {
-//         request(app)
-//             .get('/trips')
-//             .expect('Content-Type', /json/)
-//             .expect(200, done);
-//     });
-// });
-//
-//
-// xdescribe('GET /trips/:id', () => {
-// });
-//
-// xdescribe('POST /trips', () => {
-// });
-//
-// xdescribe('PUT /trips/:id', () => {
-// });
-//
-// xdescribe('DELETE /trips/:id', () => {
-// });
+afterEach(done => {
+    knex('trips').del().then(() => done())
+});
 
-suite('trips routes', () => {
-  before((done) => {
-    knex.migrate.latest()
-      .then(() => {
-        done();
-      })
-      .catch((err) => {
-        done(err);
-      });
-  });
 
-  beforeEach((done) => {
-    knex.seed.run()
-      .then(() => {
-        done();
-      })
-      .catch((err) => {
-        done(err);
-      });
-  });
+describe('GET /trips', () => {
+    it('renders an html page', done => {
+        request(app)
+            .get('/trips')
+            .expect('Content-Type', /html/)
+            .expect(200, done);
+    });
+});
 
-  test('GET /trips', (done) => {
-    /* eslint-disable max-len */
+describe('GET /users', () => {
+    it('returns user information in json', done => {
+        request(app)
+            .get('/users')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+
+describe('GET /users/1', () => {
+    it('returns an array of the user at specified id when responding with JSON', done => {
+        request(app)
+            .get('/users')
+            .end((err, res) => {
+                expect(res.body).to.deep.equal([{
+                    id: 1,
+                    name: 'Paria Canyon',
+                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+                    description: 'Best trip I\'ve ever been on. Sweet Conyon.',
+                    dates: "4/14/17 - 4/22/17",
+                    cost: "$1.00",
+                    numberOfPeople: 0
+                }]);
+                done();
+            });
+    });
+});
+
+describe('GET /trips_users/1', () => {
+    it('returns an array of the trips for user with id '
+        1 ' when responding with JSON', done => {
+            request(app)
+                .get('/users')
+                .end((err, res) => {
+                    expect(res.body).to.deep.equal([{
+                            id: 1,
+                            trip_id: 1,
+                            user_id: 1,
+                            stripe_id: 'ajbjsdse'
+                        },
+                        {
+                            id: 2,
+                            trip_id: 2,
+                            user_id: 1,
+                            stripe_id: 'ajbjsdse'
+                        },
+                        {
+                            id: 3,
+                            trip_id: 3,
+                            user_id: 1,
+                            stripe_id: 'ajbjsdse'
+                        }
+                    ]);
+                    done();
+                });
+        });
+});
+
+describe('POST /trips', () => {
+
+    var newTrip = {
+        id: 4,
+        name: 'Gand Canyon',
+        photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+        description: 'Really big hole in the ground',
+        dates: "9/14/27 - 4/22/37",
+        cost: "$100.00",
+        numberOfPeople: 0
+    }
+};
+
+it('responds with JSON', done => {
     request(app)
-      .get('/trips')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, [{
-        id: 1,
-        name: 'Paria Canyon',
-        photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
-        description: 'Best trip I\'ve ever been on. Sweet Conyon.',
-        dates: "4/14/17 - 4/22/17",
-        cost: "$1.00",
-        numberOfPeople: 0,
-      },
-      {
-        id: 2,
-        name: 'Vestal Peak',
-        photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
-        description: 'Totally rad mountain, yo',
-        dates: "5/14/17 - 5/22/17",
-        cost: "$1,000,000",
-        numberOfPeople: 0,
-      },
-      {
-        id: 3,
-      name: 'Thailand',
-      photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
-      description: 'It\'s a foriegn country',
-      dates: "7/15/17 - 8/22/17",
-      cost: "$14",
-      numberOfPeople: 0,
-      }], done);
+        .post('/trips')
+        .type('form')
+        .send(newTrip)
+        .expect('Content-Type', /json/)
+        .expect(200, done);
+});
 
-      /* eslint-enable max-len */
+it('posts to trips', done => {
+    request(app)
+        .post('/trips')
+        .send(newTrip)
+        .expect(302, done)
+})
+
+});
+
+describe('POST /trips_users', () => {
+
+    var newSignUp =   {
+      id: 4,
+      trip_id: 3,
+      user_id: 2,
+      stripe_id: 'New Stripe ID'
+    },
+
+
+it('responds with JSON', done => {
+    request(app)
+        .post('/trips_users')
+        .type('form')
+        .send(newSignUp)
+        .expect('Content-Type', /json/)
+        .expect(200, done);
+});
+
+it('posts to trips_users', done => {
+    request(app)
+        .post('/trips_users')
+        .send(newSignUp)
+        .expect(302, done);
+})
+
+});
+
+describe('POST /users', () => {
+
+    var newUser =   {
+            id: 4,
+            first_name: 'Unicorn',
+            last_name: 'McHikeaton',
+            photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+            phone: '555-555-5555',
+            street_address: "Up in the hills",
+            city: "Leadville",
+            state: "Colorado",
+            zipcode: "Whatever Leadville is",
+            email: "shmee@shmee.com",
+            role_id: 1,
+            hashed_password: '$2a$10$tmIQk84JLSW.ZBZNx47p2ORUYz3PNXjIgAqL0ghwCu1kcVw.21v.O'
+        }
+
+
+it('responds with JSON', done => {
+    request(app)
+        .post('/users')
+        .type('form')
+        .send(newUser)
+        .expect('Content-Type', /json/)
+        .expect(200, done);
+});
+
+it('posts to users', done => {
+    request(app)
+        .post('/users')
+        .send(newUser)
+        .expect(302, done);
+})
+
+});
+
+describe('PUT /trips/:id', () =>{
+
+  var updatedTrip = {
+    name: 'Gand Canyon',
+    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+    dates: "9/14/27 - 4/22/37",
+    cost: "$100.00"
+    }
+
+
+  it('responds with JSON', done => {
+    request(app)
+      .put('/trips/1')
+      .type('form')
+      .send(updatedTrip)
+      .expect('Content-Type', /json/)
+      .expect(200, done);
   });
 
-  // test('GET /books/:id', (done) => {
-  //   /* eslint-disable max-len */
-  //   request(server)
-  //     .get('/books/1')
-  //     .set('Accept', 'application/json')
-  //     .expect('Content-Type', /json/)
-  //     .expect(200, {
-  //       id: 1,
-  //       title: 'JavaScript, The Good Parts',
-  //       author: 'Douglas Crockford',
-  //       genre: 'JavaScript',
-  //       description: "Most programming languages contain good and bad parts, but JavaScript has more than its share of the bad, having been developed and released in a hurry before it could be refined. This authoritative book scrapes away these bad features to reveal a subset of JavaScript that's more reliable, readable, and maintainable than the language as a whole—a subset you can use to create truly extensible and efficient code.",
-  //       coverUrl: 'https://students-gschool-production.s3.amazonaws.com/uploads/asset/file/284/javascript_the_good_parts.jpg',
-  //       createdAt: '2016-06-26T14:26:16.000Z',
-  //       updatedAt: '2016-06-26T14:26:16.000Z'
-  //     }, done);
-  //
-  //     /* eslint-enable max-len */
-  // });
-  //
-  // test('POST /books', (done) => {
-  //   /* eslint-disable max-len */
-  //   request(server)
-  //     .post('/books')
-  //     .set('Accept', 'application/json')
-  //     .send({
-  //       title: 'Think Python',
-  //       author: 'Allen B. Downey',
-  //       genre: 'Python',
-  //       description: 'If you want to learn how to program, working with Python is an excellent way to start. This hands-on guide takes you through the language a step at a time, beginning with basic programming concepts before moving on to functions, recursion, data structures, and object-oriented design. This second edition and its supporting code have been updated for Python 3.',
-  //       coverUrl: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/think_python.jpg'
-  //     })
-  //     .expect('Content-Type', /json/)
-  //     .expect((res) => {
-  //       delete res.body.createdAt;
-  //       delete res.body.updatedAt;
-  //     })
-  //     .expect(200, {
-  //       id: 9,
-  //       title: 'Think Python',
-  //       author: 'Allen B. Downey',
-  //       genre: 'Python',
-  //       description: 'If you want to learn how to program, working with Python is an excellent way to start. This hands-on guide takes you through the language a step at a time, beginning with basic programming concepts before moving on to functions, recursion, data structures, and object-oriented design. This second edition and its supporting code have been updated for Python 3.',
-  //       coverUrl: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/think_python.jpg'
-  //     }, done);
-  //
-  //     /* eslint-enable max-len */
-  // });
-  //
-  // test('PATCH /books/:id', (done) => {
-  //   /* eslint-disable max-len */
-  //   request(server)
-  //     .patch('/books/1')
-  //     .set('Accept', 'application/json')
-  //     .send({
-  //       title: 'Think like Python',
-  //       author: 'Allen B. Downey',
-  //       genre: 'Python stuff',
-  //       description: 'More Python',
-  //       coverUrl: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/think_python.jpg'
-  //     })
-  //     .expect('Content-Type', /json/)
-  //     .expect((res) => {
-  //       delete res.body.createdAt;
-  //       delete res.body.updatedAt;
-  //     })
-  //     .expect(200, {
-  //       id: 1,
-  //       title: 'Think like Python',
-  //       author: 'Allen B. Downey',
-  //       genre: 'Python stuff',
-  //       description: 'More Python',
-  //       coverUrl: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/think_python.jpg'
-  //     }, done);
-  //
-  //     /* eslint-enable max-len */
-  // });
-  //
-  // test('DELETE /books/:id', (done) => {
-  //   /* eslint-disable max-len */
-  //   request(server)
-  //     .del('/books/1')
-  //     .set('Accept', 'application/json')
-  //     .expect('Content-Type', /json/)
-  //     .expect((res) => {
-  //       delete res.body.createdAt;
-  //       delete res.body.updatedAt;
-  //     })
-  //     .expect(200, {
-  //       title: 'JavaScript, The Good Parts',
-  //       author: 'Douglas Crockford',
-  //       genre: 'JavaScript',
-  //       description: 'Most programming languages contain good and bad parts, but JavaScript has more than its share of the bad, having been developed and released in a hurry before it could be refined. This authoritative book scrapes away these bad features to reveal a subset of JavaScript that\'s more reliable, readable, and maintainable than the language as a whole—a subset you can use to create truly extensible and efficient code.',
-  //       coverUrl: 'https://students-gschool-production.s3.amazonaws.com/uploads/asset/file/284/javascript_the_good_parts.jpg'
-  //     }, done);
-  //
-  //     /* eslint-enable max-len */
-  // });
+  it('updates the trip in the database', done => {
+    request(app)
+      .put('/trips/1')
+      .type('form')
+      .send(updatedTrip)
+      .end((err, res) => {
+        knex('trips').where('id', 1).first().then(trip => {
+          expect(trip.name).to.equal(updatedTrip.trip.name);
+          expect(trip.age).to.equal(updatedTrip.trip.age);
+          expect(trip.image).to.equal(updatedTrip.trip.image);
+          done();
+        });
+      });
+  });
+
+});
+
+describe('DELETE /trips/:id', () => {
+
+  it('responds with JSON', done => {
+    request(app)
+      .delete('/trips/1')
+      .send('/trips/1')
+      .expect('Content-Type', /json/)
+      .expect(200, done);
+  });
+
+  it('deletes the trip in the database', done => {
+    request(app)
+      .delete('/trips/1')
+      .send('/trips/1')
+      .expect(404, done);
+  });
+
+});
+
+describe('DELETE /trips_users/1', () => {
+
+  it('responds with JSON', done => {
+    request(app)
+      .delete('/trips_users/1')
+      .send('/trips_users/1')
+      .expect('Content-Type', /json/)
+      .expect(200, done);
+  });
+
+  it('deletes the trip in the database', done => {
+    request(app)
+      .delete('/trips_users/1')
+      .send('/trips_users/1')
+      .expect(404, done);
+  });
+
 });
