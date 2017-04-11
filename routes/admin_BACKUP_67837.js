@@ -55,6 +55,20 @@ router.put('/', function(req, res, next) {
   );
 })
 
+<<<<<<< HEAD
+// router.post('/', function(req, res, next) {
+//   knex('trips')
+//     .where('id', req.body.id)
+//     .returning('*')
+//     .update(req.body)
+//   .then((data) => {
+//     console.log(data);
+//   }).then(
+//     res.redirect('admin')
+//   );
+// })
+
+=======
 router.delete('/', function(req, res, next) {
   // knex('trips')
   //   .where('id', req.body.id)
@@ -68,5 +82,6 @@ router.delete('/', function(req, res, next) {
       res.redirect('admin')
     );
 })
+>>>>>>> partial crud on admin
 
 module.exports = router;

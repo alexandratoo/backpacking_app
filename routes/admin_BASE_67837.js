@@ -32,41 +32,14 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   knex('trips')
-    .returning('*')
-    .insert(req.body)
-    .then((data) => {
-      console.log(data);
-    })
-    .then(
-      res.redirect('admin')
-    );
-});
-
-router.put('/', function(req, res, next) {
-  knex('trips')
     .where('id', req.body.id)
     .returning('*')
     .update(req.body)
   .then((data) => {
     console.log(data);
-  })
-  .then(
+  }).then(
     res.redirect('admin')
   );
-})
-
-router.delete('/', function(req, res, next) {
-  // knex('trips')
-  //   .where('id', req.body.id)
-  //   .returning('*')
-  //   .del()
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  console.log(req.body)
-    .then(
-      res.redirect('admin')
-    );
 })
 
 module.exports = router;
