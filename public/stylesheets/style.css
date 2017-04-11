@@ -2,7 +2,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
   width: 100%;
-  margin: 0;
+  margin: 0%;
   padding: 0;
 }
 
@@ -13,14 +13,14 @@ a {
 
 
 body > .container {
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 
 /*===================*/
 /*NAVBAR AND FOOTER*/
 /*===================*/
 
-.navbarDiv {
+/*.navbarDiv {
   background-color: #133929;
   opacity: .9;
   height: 55px;
@@ -28,16 +28,28 @@ body > .container {
   position: fixed;
   top: 0;
   z-index: 1;
-}
+}*/
 
-.navText {
+/*.navText {
   color: white;
   /*padding: 24px;*/
-}
+}*/
 
 .logo {
   font-family: 'Cabin Sketch', arial;
   font-size: 24px;
+}
+
+header {
+  background-color: #133929;
+  opacity: .9;
+  /*width: 100%;*/
+  height: 40px;
+  /*overflow: hidden;*/
+}
+
+.dropdown-meu {
+  
 }
 
 footer {
@@ -47,13 +59,24 @@ footer {
   overflow: hidden;
 }
 
+.navMenu {
+  display: inline-block;
+  float: right;
+  padding: 10px;
+}
+
 .navbarTitle {
   font-family: 'Cabin Sketch', arial;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 28px;
   padding-left: 10px;
   color: #F6F5E4;
   display: inline-block;
+  text-decoration: none;
+}
+.navbarTitle:hover {
+  text-decoration: none;
+  color: #DFCA9F;
 }
 
 .footText {
@@ -62,7 +85,7 @@ footer {
   display: inline-block;
   float: right;
   margin: auto 10px auto 0;
-  padding: auto 20px auto 10px;
+  padding: 20px 10px
 }
 
 /*===================*/
@@ -90,7 +113,7 @@ label {
 
 .card {
   display: block;
-  margin: auto;  
+  margin: auto;
 }
 
 .content {
