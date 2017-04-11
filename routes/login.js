@@ -21,12 +21,18 @@ router.post('/', (req, res, next) => {
     .where('email', email)
     .first()
     .then((user) => {
-      // console.log(user);
+      console.log('user', user);
       bcrypt.compare(password, user.hashed_password, (err, result) => {
         if(result){
           let token = jwt.sign({user:user}, 'EGGS');
           res.cookie('session', token);
-          res.redirect('/trips');
+          if (req.user.role_id === 1) {
+            res.redirect('/trips');
+          }
+          if (req.user.role_id === 3) {
+            res.redirect('/trips');
+
+          }
         } else {
           res.render('login', {error: 'Please anter a valid email and password'});
         }
