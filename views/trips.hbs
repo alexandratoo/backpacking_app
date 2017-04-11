@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <!-- Boostrap Mobile Device Responsiveness -->
-    
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -24,10 +24,7 @@
 <body class="container">
     <div id='userId' class='hidden'>{{userId}}</div>
     <h1>Trips Table</h1>
-    <form action="/trips" method="GET">
-        <label>Enter an ID: <input type="text" name="idToGet"></label>
-        <input class="btn btn-primary" type="submit">
-    </form>
+
     {{#each trips}}
         <!-- <div class="taContainer col-sm-4"> -->
             <!-- <h3>{{this.name}}</h4>
@@ -38,7 +35,7 @@
 
             <div class="containerjumbo" >
       <h3 class="display-3">{{this.name}}</h3>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <p class="lead">{{this.description}}</p>
       <hr class="my-4">
       <img src="{{this.photo}}" class="tripImg img-fluid" alt="Responsive image">>
       <p class="lead">
@@ -54,10 +51,10 @@
   </div>
   <img class="card-img-bottom" src="{{this.photo}}" alt="Card image cap">
 </div> -->
-        <p>Pay this yo: ${{this.cost}}.00</p>
+        <p>Cost of trip: ${{this.cost}}.00</p>
         <p>Trip Start: {{this.start_date}}</p>
         <p>Trip End: {{this.end_date}}</p>
-        <p>About this trip: {{this.description}}</p>
+        <!-- <p>About this trip: {{this.description}}</p> -->
         <p>People Going: {{this.numberOfPeople}}</p>
         <button class="btn btn-primary update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
         <button class="btn btn-primary delete" data-id="{{this.id}}">Delete</button>
@@ -77,12 +74,12 @@
         </div>
       </div>
     {{/each}}
-     <form class="container" action="/trips" method="post">
+     <!-- <form class="container" action="/trips" method="post">
        <label>Trip Name: <input class="col-sm-4" type="text" name="name"></label><br>
        <label>Trip Picture URL: <input class="col-sm-4" type="text" name="picture"></label><br>
        <label>Trip Description: <input class="col-sm-4" type="text" name="description"></label><br>
        <input class="btn btn-primary" type="submit">
-     </form>
+     </form> -->
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
