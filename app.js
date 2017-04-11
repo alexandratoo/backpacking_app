@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('dotenv').config();
 
+var admin = require('./routes/admin');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/signup', signup);
 app.use('/trips', trips);
 app.use('/index', index);
+app.use('/admin', admin);
 app.use('/users', users);
 app.use('/', login);
 
