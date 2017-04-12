@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
       .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
       .orderBy('id', 'asc')
       .then((tripsFromKnex) => {
-        console.log('here before render');
         res.render('admin', {
           trips: tripsFromKnex
         });
@@ -35,9 +34,6 @@ router.post('/', function(req, res, next) {
   knex('trips')
     .returning('*')
     .insert(req.body)
-    .then((data) => {
-      console.log(data);
-    })
     .then(
       res.render('admin')
     );
