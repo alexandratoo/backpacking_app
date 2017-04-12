@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <!-- Boostrap Mobile Device Responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <!-- Bootsrap JS -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Boostrap Mobile Device Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,27 +26,52 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700" rel="stylesheet">
 
-    <title>User Page</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-fixed-top">
-        <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
-        <a href="#" class="navMenu dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-        <ul class="dropdown-menu pull-right">
-            <li><a href="/">Login</a></li>
-            <li><a href="/trips">Trips</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/signup">Signup</a></li>
-        </ul>
-      </nav>
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
 
+    <title>User Page</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
+            <a href="#" class="navMenu dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="/">Login</a></li>
+                <li><a href="/trips">Trips</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/signup">Signup</a></li>
+            </ul>
+        </nav>
     </header>
 
-    
+    <main>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+
+
+                {{#user}}
+                    <h2>{{this.first_name}} {{this.last_name}}</h2><br>
+                    <img src="{{this.photo}}" alt="" class="userPic"><br> Phone: {{this.phone}}
+                    <br> Address: {{this.street_address}}
+                    <br> {{this.city}}, {{this.state}} {{this.zipcode}}
+                    <br> Email: {{this.email}}
+                    {{/user}}
+
+                    {{#trips}}
+                    {}
+            </div>
+        </div>
+
+
+
+    </main>
+
     <footer class="footer">
-    <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
+        <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
         <p class="footText text-right">&copy; TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
     </footer>
-  </body>
+</body>
+
 </html>

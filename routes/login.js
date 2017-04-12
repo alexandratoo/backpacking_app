@@ -23,6 +23,10 @@ router.post('/', ev(validations.post), (req, res, next) => {
       if (user) {
         bcrypt.compare(password, user.hashed_password, (err, result) => {
           if(result){
+            console.log('user', user);
+            console.log('result', result);
+            res.cookie('id', user.id)
+
             let token = jwt.sign({user:user}, process.env.JWT_SECRET);
             res.cookie('session', token);
 

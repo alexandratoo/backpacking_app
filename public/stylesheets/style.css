@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+main {
+  margin-top: 50px;
+}
+
 
 /*===================*/
 /*NAVBAR AND FOOTER*/
@@ -246,4 +250,12 @@ img {
   width: 100%;
   text-align: center;
   border: 1px solid black
+}
+
+.user {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.userPic {
+  border-radius: 200px;
 }

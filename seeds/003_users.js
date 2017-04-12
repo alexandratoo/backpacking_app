@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
                     id: 2,
                     first_name: 'Tim',
                     last_name: 'Cutter',
-                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+                    photo: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAspAAAAJDViMWUxODU0LTVjYWQtNGQ3Zi1iYTA1LThiZDg0MmU0OWUxOQ.jpg',
                     phone: '555-555-5555',
                     street_address: "Hammock",
                     city: "Boulder",
