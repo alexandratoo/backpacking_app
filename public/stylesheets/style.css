@@ -247,6 +247,7 @@ img {
 }
 
 .containerjumbo {
+  width:100%;
     padding: 20px;
     min-height: 200px;
 }
@@ -342,4 +343,12 @@ img {
 
 .userPic {
   border-radius: 200px;
+}
+
+.userInfo {
+
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 50%;
+  margin:auto;
 }
