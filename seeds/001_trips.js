@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 3,
         name: 'Sedona',
-        photo: 'https://cdn.pixabay.com/photo/2016/08/16/15/19/sedona-1598194__340.jpg',
+        photo: 'https://s-media-cache-ak0.pinimg.com/736x/7c/0f/0c/7c0f0c2bdb16d759541d2d61fe2cdac8.jpg',
         description: "Explore the heart of Sedona's stunning Red Rock Canyon Country.  Sleep under the clearest night sky you've ever seen. Enjoy our amazing backcountry cuisine. ",
         start_date: "2017-07-15",
         end_date: "2017-07-22",
