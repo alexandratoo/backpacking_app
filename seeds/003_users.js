@@ -26,7 +26,31 @@ exports.seed = function(knex, Promise) {
                     photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
                     email: "him@him.com",
                     role_id: 3
-                }
+                },
+                {
+                  id: 4,
+                first_name: 'Adam',
+                last_name: 'Rose',
+                photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
+                email: "adamrose@mail.com",
+                role_id: 1
+              },
+              {
+                id: 5,
+              first_name: 'Sofia',
+              last_name: 'Torres',
+              photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
+              email: "sofiatorres@mail.com",
+              role_id: 1
+            },
+            {
+              id: 6,
+            first_name: 'Sandra',
+            last_name: 'Tooley',
+            photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
+            email: "sandratooley@mail.com",
+            role_id: 1
+          },
             ]);
         })
         .then(() => {
