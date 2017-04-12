@@ -294,7 +294,7 @@ footer {
 .tripsTitle {
     font-family: 'Cabin Sketch', arial;
     font-size: 52px;
-    color: hsla(155, 50%, 15%, 0.7);
+    color: hsla(155, 50%, 15%, 0.85);
     padding: 20px;
     padding-top: 35px;
 }
@@ -341,6 +341,14 @@ footer {
     margin-top: 20px;
     background-color: hsla(155, 50%, 15%, 0.7);;;
 }
+
+.stripeModal {
+  height: 200px;
+  /*opacity: 0.8;*/
+  background-color: hsla(155, 50%, 15%, 0.4);
+}
+
+
 
 /*===================*/
 

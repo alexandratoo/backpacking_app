@@ -29,6 +29,15 @@
     <link rel="stylesheet" href="./stylesheets/style.css">
 
 
+    <!-- Google Data and Logout js -->
+    <meta name="google-signin-client_id" content="474877614234-spiqvdi2jlkc96klm3tvu0drpfinqe47.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="./js/logout.js"></script>
+
+    <!-- If you're using Stripe for payments -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <title>Galvanize Trips</title>
+
 </head>
 
 <body>
@@ -51,7 +60,6 @@
 
     <main>
 
-
         <div id='userId' class='hidden'>{{userId}}</div>
         <h1 class="tripsTitle text-center" id="head">Tantalizing Treks with Trip-Trak</h1>
 
@@ -69,81 +77,30 @@
                         <p class="lead">Trip Start: {{this.start_date}}</p>
                         <p class="lead">Trip End: {{this.end_date}}</p>
                         <p class="lead">People Going: {{this.numberOfPeople}}</p>
-                        <button class="tripBtn btn btn-primary update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
+                        <button class="tripBtn btn btn-primary update" style="{{../hidden}}" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
 
                     </div>
                 </div>
-            {{/each}}
-        </div>
 
 
-        <!-- LINE WAS LIVE <div class='containter'> -->
-        <!-- <div id='userId' class='hidden'>{{userId}}</div>
-    <h1 class='title text-center' id=head>Tantalizing Treks with Trip-Trak</h1> -->
-
-        <!-- LINE WAS LIVE      {{#each trips}} -->
-        <!-- <div class="taContainer col-sm-4"> -->
-        <!-- <h3>{{this.name}}</h4>
-        <img height="200px" width="200px" src="{{this.photo}}"> -->
-        <!-- <div class="container">
-
-            <hr> -->
-        <!-- WAS LVIE -->
-        <!-- <div class="containerjumbo">
-                    <h3 class="display-3 text-center">{{this.name}}</h3>
-                    <p class="lead">{{this.description}}</p>
-                    <hr class="my-4">
-                  <img src="{{this.photo}}" class="tripImg img-fluid" alt="Responsive image"> -->
-        <!-- END WASLIVE -->
-        <!-- LINE WAS OUT<p class="lead"> -->
-        <!-- LINE WAS OUT<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
-        <!-- LINE WAS OUT</p> -->
-        <!-- LINE WAS LIVE      </div> -->
-
-        <!-- <div class="card" id="tripscard">
-  <div class="card-block">
-    <h4 class="card-title">{{this.name}}</h4>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <img class="card-img-bottom" src="{{this.photo}}" alt="Card image cap">
-</div> -->
-
-        <!-- WAS LIVE -->
-        <!-- <p>Cost of trip: ${{this.cost}}.00</p>
-                <p>Trip Start: {{this.start_date}}</p>
-                <p>Trip End: {{this.end_date}}</p> -->
-        <!-- WAS COMMENTED OUT BEFORE<p>About this trip: {{this.description}}</p> -->
-        <!-- <p>People Going: {{this.numberOfPeople}}</p>
-                <button class="btn btn-primary update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
-
-        </div> -->
-        <!-- END WAS LIVE -->
-        <!-- Was LIVE -->
-        <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content text-center">
-                    <form action="/trips" method="POST">
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                            data-locale="auto" data-zip-code="true">
-                        </script>
-                        <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
-                        <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
-                    </form>
+                <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content text-center">
+                            <form class="stripeModal" action="/trips" method="POST">
+                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto" data-zip-code="true">
+                                </script>
+                                <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
+                                <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+            {{/each}}
+
         </div>
-        <!-- {{/each}} -->
-        <!-- END WAS LIVE -->
-
-        <!-- <form class="container" action="/trips" method="post">
-       <label>Trip Name: <input class="col-sm-4" type="text" name="name"></label><br>
-       <label>Trip Picture URL: <input class="col-sm-4" type="text" name="picture"></label><br>
-       <label>Trip Description: <input class="col-sm-4" type="text" name="description"></label><br>
-       <input class="btn btn-primary" type="submit">
-     </form> -->
     </main>
-
 
     <footer class="footer">
         <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
