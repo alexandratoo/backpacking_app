@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Maven Pro", Helvetica, sans-serif;
     overflow: auto;
     height: 100%;
     width: 100%;
@@ -14,6 +14,11 @@ body {
 
 a {
     text-decoration: none;
+}
+
+.hidden {
+  height: 0.1px;
+  width: 0.1px;
 }
 
 body::before {
@@ -36,7 +41,7 @@ body::before {
 
 main {
   margin-top: 50px;
-  
+
 }
 
 /*===================*/
@@ -273,24 +278,37 @@ footer {
 
 /*==================*/
 
-img {
-    height: auto;
-    max-width: 100%;
+.tripsTitle {
+    font-family: 'Cabin Sketch', arial;
+    font-size: 38px;
+    color: hsla(155, 50%, 15%, 0.7);;
 }
 
-.tripImg {
+
+
+
+/*img {
+    height: auto;
+    max-width: 100%;
+}*/
+
+/*.tripImg {
     display: block;
     margin: auto;
     border-radius: 10px;
     height: 400px;
     width: auto;
-}
+}*/
 
+/*<<<<<<< HEAD
 .containerjumbo {
   width:100%;
+=======*/
+/*.containerjumbo {
+>>>>>>> Trips css edits, misaligned cards
     padding: 20px;
     min-height: 200px;
-}
+}*/
 
 
 /*===================*/
