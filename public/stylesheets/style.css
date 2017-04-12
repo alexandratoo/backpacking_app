@@ -41,8 +41,6 @@ body::before {
 
 main {
   margin-top: 50px;
-
-
 }
 
 /*===================*/
@@ -277,10 +275,7 @@ footer {
 /*TRIPS*/
 
 
-/*==================*/
-.content {
-  padding-top: 0;
-}
+/*==================*/  
 
 .content.trips, .content.trips {
   color: hsla(0, 50%, 100%, .8);
@@ -348,7 +343,9 @@ footer {
   background-color: hsla(155, 50%, 15%, 0.4);
 }
 
-
+.stripe-button-el {
+  
+}
 
 /*===================*/
 
