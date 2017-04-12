@@ -16,6 +16,12 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
     <link rel="stylesheet" href="./stylesheets/style.css">
+
+    <!-- Google Data and Logout js -->
+    <meta name="google-signin-client_id" content="474877614234-spiqvdi2jlkc96klm3tvu0drpfinqe47.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script type="text/javascript" src="./js/logout.js"></script>
+
     <!-- If you're using Stripe for payments -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <title>Galvanize Trips</title>
@@ -30,7 +36,7 @@
           <li><a href="/">Login</a></li>
           <li><a href="/trips">Trips</a></li>
           <li><a href="/profile">Profile</a></li>
-          <li><a href="/signup">Signup</a></li>
+          <li class="dropLinks logout"><a>Logout</a></li>
       </ul>
     </nav>
 
@@ -71,7 +77,7 @@
         <!-- <p>About this trip: {{this.description}}</p> -->
         <p>People Going: {{this.numberOfPeople}}</p>
         <button class="btn btn-primary update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
-      
+
       </div>
 
       <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
