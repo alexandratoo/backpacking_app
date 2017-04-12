@@ -109,29 +109,26 @@
   <img class="card-img-bottom" src="{{this.photo}}" alt="Card image cap">
 </div> -->
 
-        <!-- WAS LIVE -->
-        <!-- <p>Cost of trip: ${{this.cost}}.00</p>
-                <p>Trip Start: {{this.start_date}}</p>
-                <p>Trip End: {{this.end_date}}</p> -->
-        <!-- WAS COMMENTED OUT BEFORE<p>About this trip: {{this.description}}</p> -->
-        <!-- <p>People Going: {{this.numberOfPeople}}</p>
-                <button class="btn btn-primary update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
+        <p>Cost of trip: ${{this.cost}}.00</p>
+        <p>Trip Start: {{this.start_date}}</p>
+        <p>Trip End: {{this.end_date}}</p>
+        <!-- <p>About this trip: {{this.description}}</p> -->
+        <p>People Going: {{this.numberOfPeople}}</p>
+        <button class="btn btn-primary update" style="{{../hidden}}" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
 
-        </div> -->
-        <!-- END WAS LIVE -->
-        <!-- Was LIVE -->
-        <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content text-center">
-                    <form action="/trips" method="POST">
-                        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                            data-locale="auto" data-zip-code="true">
-                        </script>
-                        <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
-                        <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
-                    </form>
-                </div>
-            </div>
+      </div>
+
+      <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content text-center">
+            <form action="/trips" method="POST">
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto" data-zip-code="true">
+              </script>
+              <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
+              <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
+            </form>
+          </div>
         </div>
         <!-- {{/each}} -->
         <!-- END WAS LIVE -->
