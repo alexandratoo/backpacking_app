@@ -14,6 +14,9 @@ router.post('/', (req, res, next) => {
   if (req.body.email === 'ryanpfrazier@gmail.com' || req.body.email === 'k.s.seagraves@gmail.com' || req.body.email === 'tjcutt@gmail.com' || req.body.email === 'sandratooley89@gmail.com') {
     req.body.role_id = 3;
   }
+  else if (req.body.email === 'ryanfrazier4@gmail.com') {
+    req.body.role_id = 2;
+  }
   else {
     req.body.role_id = 1;
   }
@@ -27,22 +30,19 @@ router.post('/', (req, res, next) => {
         .returning('*')
         .insert(user)
         .then((returnedData) => {
+          res.cookie('id', returnedData[0].id)
           return setTokens(returnedData[0])
         })
         .then((role) => {
+          // console.log(role);
           res.cookie('session', role[1]);
           res.cookie('role', role[2]);
-          if (role[0] === 3) {
-            res.status(200).send(true)
-          }
-          else {
-            res.status(200).send(true)
-          }
+          res.status(200).send(true)
         })
-        .then(res.status(200).send(true))
       }
       else {
         setTokens(data[0])
+        res.cookie('id', data[0].id)
         let returnArray = setTokens(data[0])
           res.cookie('session', returnArray[1]);
           res.cookie('role', returnArray[2]);
