@@ -45,8 +45,7 @@ router.get('/', function(req, res, next) {
     let userId = req.cookies.id
     console.log(userId);
     getBoth(userId).then((data) => {
-      console.log("user...", data);
-      console.log("trips...", data.trips);
+      // console.log("user...", data);
       res.render('profile', {data})
     })
 })

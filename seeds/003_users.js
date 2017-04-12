@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
                     id: 1,
                     first_name: 'Kevin',
                     last_name: 'Seagraves',
-                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
+                    photo: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAA2PAAAAJGQyNzU1YmI2LWE3NTgtNDg2Yi05YjRhLWQzY2Q2MTQ5ZmQyMA.jpg',
                     phone: '555-555-5555',
                     street_address: "WV Van",
                     city: "Denver",
