@@ -117,10 +117,10 @@
       <p>Trip End: <input type="date" value="{{this.end_date}}" disabled></p>
       <p>About this trip: {{this.description}}</p>
       <p>People Going: {{this.numberOfPeople}}</p>
-      <button class="btn btn-success update" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Update Trip Info</button>
+      <button class="btn btn-success update" data-toggle="modal" data-target="#j{{this.id}}" data-id="{{this.id}}">Update Trip Info</button>
       <button class="btn btn-success deleteButton" name="{{this.id}}" data-id="{{this.id}}" id="d{{this.id}}">Delete Trip</button>
       </div>
-      <div class="modal fade bd-example-modal-lg" id="{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal fade bd-example-modal-lg" id="j{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content text-center col-sm-10">
             <form class="form-inline putForm">
