@@ -7,16 +7,24 @@ function onSignIn(googleUser) {
   console.log('given name: ' + profile.getGivenName()); // This is null if the 'email' scope is not present.
   console.log('family name: ' + profile.getFamilyName()); // This is null if the 'email' scope is not present.
 
-  let first_name = profile.getGivenName();
-  let last_name = profile.getFamilyName();
-  let photo = profile.getImageUrl();
-  let role_id = 1;
-  let email = profile.getEmail();
+  let data = {
+    first_name: profile.getGivenName(),
+    last_name: profile.getFamilyName(),
+    photo: profile.getImageUrl(),
+    email: profile.getEmail()
+  }
 
-  // $.ajax({
-  //   method: "POST",
-  //   url: ""
-  // });
+  $.ajax({
+    method: "POST",
+    url: "/",
+    data: data,
+    success: function(done) {
+      console.log('done');
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
 
   console.log(googleUser.getAuthResponse(true).access_token)
   console.log(googleUser.getAuthResponse(true).id_token)
