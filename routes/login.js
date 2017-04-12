@@ -37,12 +37,7 @@ router.post('/', (req, res, next) => {
           // console.log(role);
           res.cookie('session', role[1]);
           res.cookie('role', role[2]);
-          if (role[0] === 3) {
-            res.status(200).send(true)
-          }
-          else {
-            res.status(200).send(true)
-          }
+          res.status(200).send(true)
         })
       }
       else {
