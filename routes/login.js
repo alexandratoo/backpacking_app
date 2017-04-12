@@ -3,51 +3,99 @@ var router = express.Router();
 var bcrypt = require('bcrypt');
 var knex = require('../knex');
 var jwt = require('jsonwebtoken');
-const ev = require('express-validation');
-const validations = require('../validations/login');
 require('dotenv');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('login', {welcome: 'Welcome Back!  Login here.'});
+  res.render('login');
 });
 
-router.post('/', ev(validations.post), (req, res, next) => {
-  let email = req.body.email;
-  let password = req.body.password;
+router.post('/', (req, res, next) => {
+  if (req.body.email === 'ryanpfrazier@gmail.com') {
+    req.body.role_id = 3;
+  }
+  else {
+    req.body.role_id = 1;
+  }
   knex('users')
     .select('*')
-    .where('email', email)
-    .first()
-    .then((user) => {
-      if (user) {
-        bcrypt.compare(password, user.hashed_password, (err, result) => {
-          if(result){
-            console.log('user', user);
-            console.log('result', result);
-            res.cookie('id', user.id)
-
-            let token = jwt.sign({user:user}, process.env.JWT_SECRET);
-            res.cookie('session', token);
-
-            if (user.role_id === 3) {
-              let roleToken = jwt.sign({role:user.role_id}, process.env.JWT_SECRET);
-              res.cookie('role', roleToken);
-              res.redirect('/admin')
-            }
-            else {
-              res.redirect('/trips');
-            }
+    .where('email', req.body.email)
+    .then((data) => {
+      if (!data[0]) {
+        let user = req.body;
+        knex('users')
+        .returning('*')
+        .insert(user)
+        .then((returnedData) => {
+          return setTokens(returnedData[0])
+        })
+        .then((role) => {
+          res.cookie('session', token);
+          res.cookie('role', roleToken);
+          if (role === 3) {
+            res.status(200).send(true)
           }
           else {
-            res.render('login', {error: 'Please anter a valid email and password'});
+            res.status(200).send(true)
           }
         })
+        .then(res.status(200).send(true))
       }
       else {
-        res.render('login', {error: 'Please enter a valid email and password, or if you are a new user, register below.'});
+        setTokens(data[0]);
+        res.cookie('session', token);
+        res.cookie('role', roleToken);
+        if (data[0].role_id === 3) {
+          res.status(200).send(true)
+        }
+        else {
+          res.status(200).send(true)
+        }
       }
     })
+
+
+  // knex('users')
+  //   .select('*')
+  //   .where('email', email)
+  //   .first()
+  //   .then((user) => {
+  //     bcrypt.compare(password, user.hashed_password, (err, result) => {
+  //       if(result){
+  //         let token = jwt.sign({user:user}, process.env.JWT_SECRET);
+  //         res.cookie('session', token);
+  //
+  //         if (user.role_id === 3) {
+  //           let roleToken = jwt.sign({role:user.role_id}, process.env.JWT_SECRET);
+  //           res.cookie('role', roleToken);
+  //           res.redirect('/admin')
+  //         }
+  //         if (user.role_id === 2) {
+  //           let roleToken = jwt.sign({role:user.role_id}, process.env.JWT_SECRET);
+  //           res.cookie('role', roleToken);
+  //            res.redirect('/trips' )
+  //         }
+  //         else {
+  //           res.redirect('/trips');
+  //         }
+  //       }
+  //       else {
+  //         res.render('login', {error: 'Please anter a valid email and password'});
+  //       }
+  //     })
+  //   })
 })
+
+
+// res.redirect('/admin')
+// res.cookie('role', roleToken);
+// res.redirect('/trips')
+
+function setTokens(user) {
+  let token = jwt.sign({user:user}, process.env.JWT_SECRET);
+  let roleToken = jwt.sign({role: user.role_id}, process.env.JWT_SECRET);
+  console.log(user.role_id);
+  return user.role_id;
+};
 
 module.exports = router;

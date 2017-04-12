@@ -16,10 +16,23 @@ a {
     text-decoration: none;
 }
 
-main {
-  margin-top: 50px;
+body::before {
+    background: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/0MHI047FWY.jpg) no-repeat center center fixed;
+    content: '';
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
-
 
 /*===================*/
 
@@ -80,10 +93,15 @@ header {
 
 footer {
     background-color: #133929;
+    position:static;
     bottom: 0;
     opacity: .9;
     width: 100%;
     overflow: hidden;
+}
+.loginFooter {
+  position: absolute;
+  bottom: 0;
 }
 
 .footText {
@@ -104,13 +122,44 @@ footer {
 
 /*===================*/
 
-.containerbutton1 {
+/*.containerbutton1 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}*/
+
+.loginInput {
+    width: 80%;
+    display: block;
+    margin: auto;
 }
 
+.loginContent {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.loginTitle {
+    font-family: 'Cabin Sketch', arial;
+    font-size: 36px;
+    color: hsla(155, 50%, 15%, 0.7);;
+}
+
+.loginSiteBtn {
+    font-size: 32px;
+    background-color: hsla(360, 100%, 100%, 0.5);
+    color: hsla(155, 50%, 15%, 0.7);
+    font-family: 'Cabin Sketch', arial;
+    border: 1px solid hsla(155, 50%, 15%, 0.4);
+    height: 60px;
+    margin: 10px;
+}
+
+.loginSiteBtn:hover {
+    background-color: hsla(155, 50%, 15%, 0.4);
+    color: hsla(0, 50%, 100%, .8)
+  }
 
 /*===================*/
 
@@ -120,30 +169,16 @@ footer {
 
 /*===================*/
 
-body::before {
-    background: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/0MHI047FWY.jpg) no-repeat center center fixed;
-    content: '';
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
-}
 
-.title {
+
+.signupTitle {
     font-family: 'Cabin Sketch', arial;
     font-size: 46px;
     color: hsla(155, 50%, 15%, 0.7);;
 }
 
+
+/*Used for multiple pages to provide room for headers and footers*/
 .content {
     margin: auto;
     padding-top: 60px;
@@ -196,7 +231,7 @@ body::before {
     border-radius: 5px;
 }
 
-.signupBtn {
+.siteBtn {
     font-size: 36px;
     background-color: hsla(360, 100%, 100%, 0.5);
     color: hsla(155, 50%, 15%, 0.7);
@@ -204,7 +239,7 @@ body::before {
     border: 1px solid hsla(155, 50%, 15%, 0.4);
 }
 
-.signupBtn:hover {
+.siteBtn:hover {
     background-color: hsla(155, 50%, 15%, 0.4);
     color: hsla(0, 50%, 100%, .8)
   }
