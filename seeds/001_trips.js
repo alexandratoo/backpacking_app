@@ -7,7 +7,7 @@ exports.seed = function(knex, Promise) {
       return knex('trips').insert([{
           id: 1,
           name: 'Havasu Falls',
-          photo: 'https://cdn.pixabay.com/photo/2016/09/24/19/37/waterfall-1692388_960_720.jpg',
+          photo: 'https://cdn.pixabay.com/photo/2014/06/03/06/14/lake-360995__340.jpg',
           description: 'Experience the world-renowned turquoise water and plunging falls of Havasupai!  Swim in the refreshing and idyllic pools and waterfalls that characterize Havasu Creek.  Let us take care of everything so you can absorb the magic of this amazing place!',
           start_date: "2017-04-18",
           end_date: "2017-04-22",

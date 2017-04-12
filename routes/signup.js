@@ -11,7 +11,7 @@ require('dotenv');
 
 router.get('/', function(req, res, next) {
     res.render('signup', {
-        title: 'Create New Account'
+        title: 'Create A New Account'
     });
 });
 

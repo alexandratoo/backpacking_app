@@ -16,40 +16,38 @@ require('dotenv');
 
 
 function getUser(userId) {
-  return  knex('users')
-          .select('id', 'first_name', 'last_name', 'photo', 'street_address', 'city', 'state', 'zipcode', 'email')
-          .where('id', userId)
-          console.log('first');
+    return knex('users')
+        .select('id', 'first_name', 'last_name', 'photo', 'street_address', 'city', 'state', 'zipcode', 'email')
+        .where('id', userId)
+
 }
 //
 function getUserTrips(userId) {
-  knex('trips')
-  .join('trips_users', 'trips.id', 'trips_users.trip_id')
-      .select('*')
-      .where('user_id', userId)
-      console.log('second');
+    return knex('trips')
+        .join('trips_users', 'trips.id', 'trips_users.trip_id')
+        .select('*')
+        .where('user_id', userId)
 }
 //
 function getBoth(userId) {
-  console.log('third');
-  return Promise.all([
-    getUser(userId),
-    getUserTrips(userId),
-  ]).then(function (results) {
-    console.log(results);
-    let [user, trips] = results
-    user.trips = trips
-
-    console.log(trips);
-    return trips
-  })
+    console.log('third');
+    return Promise.all([
+        getUser(userId),
+        getUserTrips(userId),
+    ]).then(function(results) {
+        let [user, trips] = results
+        user.trips = trips
+        return results
+    })
 }
 
-router.get('/', function(req, res, next){
-  let userId = req.cookies.id
-  console.log(userId);
-  getBoth(userId)
-  res.end()
+router.get('/', function(req, res, next) {
+    let userId = req.cookies.id
+    console.log(userId);
+    getBoth(userId).then((data) => {
+      console.log(data);
+      res.render('profile', {data: data})
+    })
 })
 
 // router.get('/', function(req, res, next) {
@@ -89,6 +87,6 @@ router.get('/', function(req, res, next){
 //
 //                 });
 
-        // getUserWithTrips(req.cookies.id)
+// getUserWithTrips(req.cookies.id)
 
-        module.exports = router;
+module.exports = router;
