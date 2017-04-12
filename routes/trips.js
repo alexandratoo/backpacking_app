@@ -34,8 +34,6 @@ router.get('/', function(req, res, next) {
 // })
 //
 router.post('/', (req, res, next) => {
-
-  console.log(req.body);
   stripe.customers.create({
     email: req.body.stripeEmail,
     source: req.body.stripeToken
@@ -57,9 +55,10 @@ router.post('/', (req, res, next) => {
       knex('trips_users')
       .insert(chargeToAdd)
       .returning('*')
-      .then(function(data){
-        console.log(data)
-      res.end()})
+      .then(() => {
+        return knex.raw('update trips set "numberOfPeople" = ( select count(user_id) from trips_users where trips_users.trip_id = trips.id);')
+        res.end();
+      })
     })
     // .then((theCharge) => {
     //   console.log(theCharge);
