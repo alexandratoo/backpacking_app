@@ -26,13 +26,7 @@ router.post('/', validateCreate, validateEmail, ev(validations.post), (req, res,
                 first_name: data.firstName,
                 last_name: data.lastName,
                 photo: data.photo,
-                phone: data.phone,
-                street_address: data.streetAddress,
-                city: data.city,
-                state: data.state,
-                zipcode: data.zip,
                 email: data.email,
-                hashed_password: data.hashed_password,
                 role_id: 1
             }
             insertUser(userToAdd)
