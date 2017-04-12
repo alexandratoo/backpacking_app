@@ -19,7 +19,10 @@ function onSignIn(googleUser) {
     url: "/",
     data: data,
     success: function(done) {
-      console.log('done');
+      if (done) {
+        console.log('done');
+        document.location = '/admin';
+      }
     },
     error: function(error) {
       console.log(error);
