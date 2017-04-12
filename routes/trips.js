@@ -57,7 +57,7 @@ router.post('/', (req, res, next) => {
       .returning('*')
       .then(() => {
         return knex.raw('update trips set "numberOfPeople" = ( select count(user_id) from trips_users where trips_users.trip_id = trips.id);')
-        res.end();
+        .then(res.end())
       })
     })
     // .then((theCharge) => {
