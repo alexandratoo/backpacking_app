@@ -7,57 +7,25 @@ exports.seed = function(knex, Promise) {
                     id: 1,
                     first_name: 'Kevin',
                     last_name: 'Seagraves',
-                    photo: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAA2PAAAAJGQyNzU1YmI2LWE3NTgtNDg2Yi05YjRhLWQzY2Q2MTQ5ZmQyMA.jpg',
-                    phone: '555-555-5555',
-                    street_address: "WV Van",
-                    city: "Denver",
-                    state: "Colorado",
-                    zipcode: "80302",
+                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
                     email: "me@me.com",
-                    role_id: 1,
-                    hashed_password: '$2a$10$tmIQk84JLSW.ZBZNx47p2ORUYz3PNXjIgAqL0ghwCu1kcVw.21v.O'
+                    role_id: 1
                 },
                 {
                     id: 2,
                     first_name: 'Tim',
                     last_name: 'Cutter',
-                    photo: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAspAAAAJDViMWUxODU0LTVjYWQtNGQ3Zi1iYTA1LThiZDg0MmU0OWUxOQ.jpg',
-                    phone: '555-555-5555',
-                    street_address: "Hammock",
-                    city: "Boulder",
-                    state: "Colorado",
-                    zipcode: "80208",
+                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
                     email: "you@you.com",
-                    role_id: 2,
-                    hashed_password: '$2a$10$3UZpT8re4h9.a/gVuNF2qOYa2WC/5g6IWKOc5CrgTmDRk1Xy0m77a'
+                    role_id: 2
                 },
                 {
                     id: 3,
                     first_name: 'Royal',
                     last_name: 'Robbins',
                     photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
-                    phone: '555-555-5555',
-                    street_address: "High up on the wall",
-                    city: "Los Angeles",
-                    state: "California",
-                    zipcode: "12345",
                     email: "him@him.com",
-                    role_id: 3,
-                    hashed_password: '$2a$10$E728pOrOB8jtibABLG8mUeERpTryQQdwUG4P4XOgFpfW44Du2tnOe'
-                },
-                {
-                    id: 4,
-                    first_name: 'Ryan',
-                    last_name: 'Frazier',
-                    photo: 'http://cdn.danspapers.com/wp-content/uploads/2013/10/BurritoMeme.jpg',
-                    phone: '317-225-8384',
-                    street_address: "2225 Walnut Street",
-                    city: "Boulder",
-                    state: "Colorado",
-                    zipcode: "80302",
-                    email: "ryanpfrazier@gmail.com",
-                    role_id: 3,
-                    hashed_password: '$2a$12$YKuFFU40Mg1oUU4AjtNvf.Y6qjM.y5/yt.SOD0E2RdlX5l9mUSZwW'
+                    role_id: 3
                 }
             ]);
         })

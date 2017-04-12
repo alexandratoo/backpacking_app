@@ -12,16 +12,16 @@ router.get('/', function(req, res, next) {
   if (req.cookies.role) {
     let role = jwt.verify(req.cookies.role, process.env.JWT_SECRET).role;
     if (role !== 3) {
-      res.redirect('/')
+      res.redirect('/trips')
     }
     else {
     knex('trips')
       .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
       .orderBy('id', 'asc')
       .then((tripsFromKnex) => {
+        console.log('here before render');
         res.render('admin', {
-          trips: tripsFromKnex,
-          userId: req.cookies.id
+          trips: tripsFromKnex
         });
       })
     }
