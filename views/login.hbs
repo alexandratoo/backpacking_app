@@ -1,84 +1,147 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title>Login</title>
-      <link rel="stylesheet" href="./stylesheets/style.css">
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-      <!-- Bootstrap compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-   </head>
-   <body>
-     <header>
-         <nav class="navbar navbar-fixed-top">
-             <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
-             <a href="#" class="navMenu dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-             <ul class="dropdown-menu pull-right">
-                 <li><a href="/">Login</a></li>
-                 <li><a href="/trips">Trips</a></li>
-                 <li><a href="/profile">Profile</a></li>
-                 <li><a href="/signup">Signup</a></li>
-             </ul>
-         </nav>
-
-     </header>
-
-<main>
 
 
-     <div class = 'content'>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <!-- Boostrap Mobile Device Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- JQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-   <div class="container">
-     <h2 class="text-center">{{welcome}}</h2>
-      <h2 class="text-center">{{error}}</h2>
-    <form method='POST' action='/' class="col s12">
-</div>
-<div class = 'containerbutton1'>
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-12">
-      <div class="form-group">
-                    <input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="1">
-      </div>
-    </div>
-  </div>
-<!-- </div> -->
-<!-- <div class = "containerbutton2"> -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-12">
-      <div class="form-group">
-        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="2">
-      </div>
-    </div>
-  </div>
-<!-- </div> -->
+    <!-- Bootsrap JS -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Boostrap Mobile Device Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700" rel="stylesheet">
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+
+</head>
+
+<body class="login">
+
+    <!-- NAVBAR   -->
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
+            <a href="#" class="navMenu dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+            <ul class="dropdown-menu pull-right">
+                <li class="dropLinks"><a href="/trips">Trips</a></li>
+                <li class="dropLinks"><a href="/profile">Profile</a></li>
+                <li class="dropLinks"><a href="/signup">Signup</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main class="content">
+
+        <div class="card-block loginContent container col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+            <!-- <div class="container">
+                    <h2 class="text-center">Welcome to Trip-Trak. <br> Login here.</h2>
+                    <form method='POST' action='/' class="col s12">
+                </div>
+                <div class='loginInput'>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="1">
+                            </div>
+                        </div>
+                    </div> -->
+
+            <!-- Email -->
+            <h2 class="loginTitle text-center">Welcome to Trip-Trak <br> Login here</h2>
+            <form role="form" method="post">
+                <div class="row">
+                    <div class="loginInput">
+                        <div class="form-group">
+                            <input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="1">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="row">
+                    <div class="loginInput">
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="2">
+                        </div>
+                    </div>
+                </div>
 
 
-<!-- <div class = "containerbutton3"> -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-12"><input type="submit" value="login" class="btn btn-primary btn-block btn-lg" tabindex="12"></div>
-      </div>
-    <!-- </div> -->
+                <!-- BUTTON -->
+                <div class="row">
+                    <a href="#"><div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 "><input type="submit" value="LOGIN" class="loginSiteBtn btn  btn-block btn-lg" tabindex="12"></div>
+                      </a>
+
+                    <a href="./signup">
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4  "><input type="button" value="SIGNUP" class="loginSiteBtn btn  btn-block btn-lg" tabindex="12"></div>
+                    </a>
+                </div>
+
+            </form>
+
+            <!-- <a href="./signup">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 "><input type="" value="SIGNUP" class="siteBtn btn  btn-block btn-lg" tabindex="12"></div>
+                </div>
+            </a> -->
+            <!-- </div> -->
+            <!-- <div class = "containerbutton2"> -->
+            <!-- <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-12">
+                    <div class="form-group">
+
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Original button -->
+            <!-- <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-md-12"><input type="submit" value="login" class="btn btn-primary btn-block btn-lg" tabindex="12"></div>-->
+
+            </form>
+
+            <!-- <a href="./signup">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md-12"><input type="submit" value="register" class="btn btn-primary btn-block btn-lg" tabindex="13"></div>
+                        </div>
+                    </a>
 
 
-    </form>
+                </div> -->
 
-    <a href="./signup">
-    <div class="row">
-      <div class="col-xs-12 col-sm-8 col-md-12"><input type="submit" value="register" class="btn btn-primary btn-block btn-lg" tabindex="13"></div>
-    </div>
-    </a>
+            <!-- </div> -->
+        </div>
+        <!-- Card container div -->
+
+    </main>
 
 
-  </div>
-<!-- </div> -->
-</main>
+    <!-- FOOTER -->
+    <!-- Ensure you add google fonts to 'head' if copying footer -->
 
-<footer class="footer">
-    <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
-    <p class="footText text-right">&copy; TRIP-TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
-</footer>
-   </body>
+    <footer class="footer loginFooter">
+        <!-- <a class="navbarTitle" href="./trips">TRIP-TRAK</a> -->
+        <p class="footText text-center">&copy; TRIP-TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
+    </footer>
+
+</body>
+
+
 </html>
