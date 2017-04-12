@@ -14,6 +14,9 @@ router.post('/', (req, res, next) => {
   if (req.body.email === 'ryanpfrazier@gmail.com' || req.body.email === 'k.s.seagraves@gmail.com' || req.body.email === 'tjcutt@gmail.com' || req.body.email === 'sandratooley89@gmail.com') {
     req.body.role_id = 3;
   }
+  else if (req.body.email === 'ryanfrazier4@gmail.com') {
+    req.body.role_id = 2;
+  }
   else {
     req.body.role_id = 1;
   }
