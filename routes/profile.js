@@ -17,15 +17,15 @@ require('dotenv');
 
 function getUser(userId) {
     return knex('users')
-        .select('id', 'first_name', 'last_name', 'photo', 'street_address', 'city', 'state', 'zipcode', 'email')
-        .where('id', userId)
+        .select('id', 'first_name', 'last_name', 'photo as user_photo', 'street_address', 'city', 'state', 'zipcode', 'email')
+        .where('id', userId).first()
 
 }
 //
 function getUserTrips(userId) {
     return knex('trips')
         .join('trips_users', 'trips.id', 'trips_users.trip_id')
-        .select('*')
+        .select('trips.id as a_trip_id', 'trips.name as trip_name', 'trips.photo as trip_photo', 'description', 'start_date', 'end_date', 'cost', 'numberOfPeople')
         .where('user_id', userId)
 }
 //
@@ -37,7 +37,7 @@ function getBoth(userId) {
     ]).then(function(results) {
         let [user, trips] = results
         user.trips = trips
-        return results
+        return user
     })
 }
 
@@ -45,8 +45,9 @@ router.get('/', function(req, res, next) {
     let userId = req.cookies.id
     console.log(userId);
     getBoth(userId).then((data) => {
-      console.log(data);
-      res.render('profile', {data: data})
+      console.log("user...", data);
+      console.log("trips...", data.trips);
+      res.render('profile', {data})
     })
 })
 
