@@ -17,7 +17,7 @@ require('dotenv');
 
 function getUser(userId) {
     return knex('users')
-        .select('id', 'first_name', 'last_name', 'photo as user_photo', 'street_address', 'city', 'state', 'zipcode', 'email')
+        .select('id', 'first_name', 'last_name', 'photo as user_photo', 'email')
         .where('id', userId).first()
 
 }
