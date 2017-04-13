@@ -13,6 +13,8 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+
 
 <!-- Google API and logout js -->
 
@@ -42,10 +44,10 @@
     </header>
 <main>
 
-    <h1 class='text-center content'>Trips Admin Page</h1><br>
+    <h1 class='text-center content adminTitle'>Trips Admin Page</h1><br>
 
     <!-- New Trip Modal -->
-        <div class="btn-container">
+        <div class="btn-container adminTitle">
           <button class="btn btn-success update" data-toggle="modal" data-target="#newTrip" >Create New Trip</button>
           <button class="btn btn-success delete">Delete Trip</button>
 
@@ -117,8 +119,11 @@
 
 
 <!-- Trips in database -->
+
+
     {{#each trips}}
 
+    <div class="content trips">
     <div class="card-block trip container col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
         <div class="cardContent text-center">
 
@@ -135,6 +140,7 @@
       <button class="btn btn-success deleteButton" name="{{this.id}}" data-id="{{this.id}}" id="d{{this.id}}">Delete Trip</button>
       </div>
     </div>
+  </div>
 
 
       <div class="modal fade bd-example-modal-lg" id="j{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -201,10 +207,10 @@
         </div>
       </div>
   {{/each}}
+
 </main>
 
 <footer class="footer">
-    <a class="navbarTitle" href="./trips">TRIP-TRAK</a>
     <p class="footText text-right">&copy; TRIP-TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
 </footer>
 
