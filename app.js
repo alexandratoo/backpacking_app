@@ -8,7 +8,6 @@ require('dotenv').config();
 
 var admin = require('./routes/admin');
 var index = require('./routes/index');
-// var users = require('./routes/users');
 var login = require('./routes/login');
 var trips = require('./routes/trips');
 var signup = require('./routes/signup');
@@ -32,12 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/profile', profile);
 app.use('/signup', signup);
-app.use('/', trips);
+app.use('/trips', trips);
 app.use('/index', index);
 app.use('/admin', admin);
-// app.use('/users', users);
-app.use('/google14bb5f30d013ce41.html', googleVerification);
-app.use('/login', login);
+app.use('/', login);
 
 
 // catch 404 and forward to error handler
