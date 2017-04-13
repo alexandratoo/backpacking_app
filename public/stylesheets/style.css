@@ -344,7 +344,7 @@ footer {
 }
 
 .stripe-button-el {
-  
+
 }
 
 /*===================*/
@@ -447,6 +447,14 @@ footer {
   margin:auto;
 }
 
+
 .adminTitle {
     font-family: 'Cabin Sketch', arial;
+
+.middle {
+  width:100%;
+  margin:auto;
+  text-align: center;
+  margin-right: -290px;
+
 }
