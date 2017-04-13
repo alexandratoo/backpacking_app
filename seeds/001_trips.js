@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
           start_date: "2017-04-18",
           end_date: "2017-04-22",
           cost: "1240",
-          numberOfPeople: 0,
+          numberOfPeople: 4,
         },
         {
           id: 2,
@@ -22,7 +22,7 @@ exports.seed = function(knex, Promise) {
           start_date: "2017-05-12",
           end_date: "2017-12-14",
           cost: "935",
-          numberOfPeople: 0,
+          numberOfPeople: 5,
         },
         {
           id: 3,
@@ -32,7 +32,7 @@ exports.seed = function(knex, Promise) {
         start_date: "2017-07-15",
         end_date: "2017-07-22",
         cost: "875",
-        numberOfPeople: 0,
+        numberOfPeople: 3,
       },
       {
         id: 4,
@@ -42,7 +42,7 @@ exports.seed = function(knex, Promise) {
       start_date: "2017-07-15",
       end_date: "2017-07-31",
       cost: "445",
-      numberOfPeople: 0,
+      numberOfPeople: 2,
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ exports.seed = function(knex, Promise) {
     start_date: "2017-07-15",
     end_date: "2017-07-22",
     cost: "3660",
-    numberOfPeople: 0,
+    numberOfPeople: 4,
   },
   {
     id: 6
@@ -63,7 +63,7 @@ exports.seed = function(knex, Promise) {
   start_date: "2017-07-15",
   end_date: "2017-07-22",
   cost: "3990",
-  numberOfPeople: 0,
+  numberOfPeople: 2,
 }
       ]);
     })
