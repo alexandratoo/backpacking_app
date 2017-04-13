@@ -23,7 +23,6 @@ function getUserTrips(userId) {
 }
 
 function getBoth(userId) {
-    console.log('third');
     return Promise.all([
         getUser(userId),
         getUserTrips(userId),
@@ -37,7 +36,6 @@ function getBoth(userId) {
 router.get('/', function(req, res, next) {
     if (req.cookies.id && req.cookies.role) {
       let userId = req.cookies.id
-      console.log(userId);
       getBoth(userId).then((data) => {
         res.render('profile', {data})
       })
