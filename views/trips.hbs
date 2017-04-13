@@ -89,10 +89,9 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content text-center">
                             <form class="stripeModal" action="/trips" method="POST">
-                                <input class="stripeBtn" type="button" name="paywithcard" value="Pay!">
-                                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="" data-description="Please enter your infomation" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="" data-description="Your trip awaits... just one last step" data-image="http://www.clipartkid.com/images/707/boot-print-sticker-UU46eT-clipart.png"
                                       data-locale="auto" data-zip-code="true">
-                                  </script>
+                                      </script>
                                   <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
                                   <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
 
