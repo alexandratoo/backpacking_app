@@ -14,6 +14,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET)
 router.get('/', function(req, res, next) {
   if (!req.cookies.role) {
     let style = 'display:none';
+    let show = 'Log In to Sign Up'
     console.log('no cookies');
     knex('trips')
       .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
@@ -21,7 +22,8 @@ router.get('/', function(req, res, next) {
         res.render('trips', {
           trips: tripsFromKnex,
           userId: req.cookies.id,
-          hidden: style
+          hidden: style,
+          show: show
         });
     })
   }

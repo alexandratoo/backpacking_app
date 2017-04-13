@@ -57,7 +57,7 @@
               <div class="modal-content text-center col-sm-10">
                 <form class="form-inline" id="postForm" action="/admin" method="post">
                   <div class="col-sm-10 col-sm-offset-1" style="background-color: white">
-                    <input class="hidden" name="id" value="{{this.id}}">
+                    <input class="hidden" name="id" value="{{this.trip.id}}">
                     <div class="form-group row">
                       <br>
                       <label class="col-sm-6" for="name">Name</label>
@@ -117,7 +117,11 @@
           </div>
           <br>
 
-
+          <div>
+            {{#each users}}
+              {{this.trip.first_name}}
+            {{/each}}
+          </div>
 <!-- Trips in database -->
 
 
@@ -134,7 +138,13 @@
         <p class="lead">Cost of trip: ${{this.cost}}.00</p>
         <p class="lead">Trip Start: {{this.start_date}}</p>
         <p class="lead">Trip End: {{this.end_date}}</p>
-        <p class="lead">People Going: {{this.numberOfPeople}}</p>
+        <p>People Going:
+          {{#each this.rows}}
+            {{this.first_name}} {{this.last_name}}
+            <img height="40px" width="40px" src="{{this.photo}}">
+            {{this.email}}
+          {{/each}}
+        </p>
 
       <button class="btn btn-success update" data-toggle="modal" data-target="#j{{this.id}}" data-id="{{this.id}}">Update Trip Info</button>
       <button class="btn btn-success deleteButton" name="{{this.id}}" data-id="{{this.id}}" id="d{{this.id}}">Delete Trip</button>
@@ -148,54 +158,57 @@
           <div class="modal-content text-center col-sm-10">
             <form class="form-inline putForm">
               <div class="col-sm-10 col-sm-offset-1" style="background-color: white">
-                <input class="hidden" name="id" value="{{this.id}}" id="{{this.id}}">
+                <input class="hidden" name="id" value="{{this.trip.id}}" id="{{this.trip.id}}">
                 <div class="form-group row">
                   <br>
                   <label class="col-sm-6" for="name">Name</label>
                   <div class="col-sm-6">
-                    <input name="name" type="text" class="form-control" value="{{this.name}}" id="{{this.name}}">
+                    <input name="name" type="text" class="form-control" value="{{this.trip.name}}" id="{{this.trip.name}}">
                   </div>
                 </div><br>
 
                 <div class="form-group row">
                   <label class="col-sm-6" for="photo">Photo URL</label>
                   <div class="col-sm-6">
-                    <input name="photo" type="text" class="form-control" value="{{this.photo}}" id="{{this.photo}}">
+                    <input name="photo" type="text" class="form-control" value="{{this.trip.photo}}" id="{{this.trip.photo}}">
                   </div>
                 </div><br>
 
                 <div class="form-group row">
                   <label class="col-sm-6" for="description">Description</label>
                   <div class="col-sm-6">
-                    <input name="description" type="text" class="form-control" value="{{this.description}}" id="{{this.description}}">
+                    <input name="description" type="text" class="form-control" value="{{this.trip.description}}" id="{{this.trip.description}}">
                   </div>
                 </div><br>
 
                 <div class="form-group row">
                   <label class="col-sm-6" for="start_date">Start Date</label>
                   <div class="col-sm-6">
-                    <input name="start_date" type="date" class="form-control" value="{{this.start_date}}" id="{{this.start_date}}">
+                    <input name="start_date" type="date" class="form-control" value="{{this.trip.start_date}}" id="{{this.trip.start_date}}">
                   </div>
                 </div><br>
 
                 <div class="form-group row">
                   <label class="col-sm-6" for="end_date">End Date</label>
                   <div class="col-sm-6">
-                    <input name="end_date" type="date" class="form-control" value="{{this.end_date}}" id="{{this.end_date}}">
+                    <input name="end_date" type="date" class="form-control" value="{{this.trip.end_date}}" id="{{this.trip.end_date}}">
                   </div>
                 </div><br>
 
                 <div class="form-group row">
                   <label class="col-sm-6" for="cost">Trip Cost</label>
                   <div class="col-sm-6">
-                    <input name="cost" type="number" class="form-control" value="{{this.cost}}" id="{{this.cost}}">
+                    <input name="cost" type="number" class="form-control" value="{{this.trip.cost}}" id="{{this.trip.cost}}">
                   </div>
                 </div><br>
 
                 <div class="form-group row">
                   <label class="col-sm-6" for="numberOfPeople">Attendees</label>
                   <div class="col-sm-6">
-                    <input name="numberOfPeople" type="text" class="form-control" value="{{this.numberOfPeople}}" id="{{this.numberOfPeople}}" disabled>
+                    {{#trip.rows}}
+                    <p>{{this.trip.first_name}}</p>
+                    {{/trip.rows}}
+                    <input name="numberOfPeople" type="text" class="form-control" value="{{this.trip.numberOfPeople}}" id="{{this.trip.numberOfPeople}}" disabled>
                   </div>
                 </div><br><br>
               </div>
