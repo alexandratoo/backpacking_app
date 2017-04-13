@@ -85,11 +85,13 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content text-center">
                             <form class="stripeModal" action="/trips" method="POST">
-                                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="Stripe.com" data-description="Widget" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                    data-locale="auto" data-zip-code="true">
-                                </script>
-                                <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
-                                <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
+                                <input class="stripeBtn" type="button" name="paywithcard" value="Pay!">
+                                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_e81hL6pMClwPcUehDnPMYoNu" data-amount="{{this.cost}}00" data-name="" data-description="Please enter your infomation" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                      data-locale="auto" data-zip-code="true">
+                                  </script>
+                                  <input type="text" name="trip_id" class="hidden" value="{{this.id}}">
+                                  <input type="text" name="trip_price" class="hidden" value="{{this.cost}}">
+
                             </form>
                         </div>
                     </div>
