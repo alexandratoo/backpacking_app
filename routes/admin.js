@@ -27,6 +27,7 @@ router.get('/', function(req, res, next) {
         }))
       })
       .then((data) => {
+        console.log(data);
         res.render('admin', {
           trips: data
         })
