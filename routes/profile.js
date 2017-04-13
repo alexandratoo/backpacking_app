@@ -13,7 +13,6 @@ function getUser(userId) {
     return knex('users')
         .select('id', 'first_name', 'last_name', 'photo as user_photo', 'email')
         .where('id', userId).first()
-
 }
 
 function getUserTrips(userId) {
@@ -36,11 +35,16 @@ function getBoth(userId) {
 }
 
 router.get('/', function(req, res, next) {
-    let userId = req.cookies.id
-    console.log(userId);
-    getBoth(userId).then((data) => {
-      res.render('profile', {data})
-    })
+    if (req.cookies.id && req.cookies.role) {
+      let userId = req.cookies.id
+      console.log(userId);
+      getBoth(userId).then((data) => {
+        res.render('profile', {data})
+      })
+    }
+    else {
+      res.redirect('/')
+    }
 })
 
 module.exports = router;

@@ -58,7 +58,6 @@
 
     <main>
       <!-- Need to add show field to each modal -->
-        <h1>{{show}}</h1>
         <div id='userId' class='hidden'>{{userId}}</div>
 
 
@@ -80,8 +79,8 @@
                         <p class="lead">Trip Start: {{this.start_date}}</p>
                         <p class="lead">Trip End: {{this.end_date}}</p>
                         <p class="lead">People Going: {{this.numberOfPeople}}</p>
-                        <button class="tripBtn btn btn-primary update" style="{{../hidden}}" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
-
+                        <button class="tripBtn tbtn btn-primary update" style="{{../hidden}}" data-toggle="modal" data-target="#{{this.id}}" data-id="{{this.id}}">Join Trip</button>
+                        <a href="/" style="{{../hideStyle}}"><button class="signingBtn tbtn btn-primary update">Log In to Sign Up</button></a>
                     </div>
                 </div>
 

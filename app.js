@@ -8,7 +8,6 @@ require('dotenv').config();
 
 var admin = require('./routes/admin');
 var index = require('./routes/index');
-// var users = require('./routes/users');
 var login = require('./routes/login');
 var trips = require('./routes/trips');
 var signup = require('./routes/signup');
