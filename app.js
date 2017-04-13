@@ -7,13 +7,11 @@ var bodyParser = require('body-parser');
 require('dotenv').config();
 
 var admin = require('./routes/admin');
-var index = require('./routes/index');
 var login = require('./routes/login');
 var trips = require('./routes/trips');
 var signup = require('./routes/signup');
 var profile = require('./routes/profile');
 var logout = require('./routes/logout')
-var googleVerification = require('./routes/googleVerification');
 
 
 var app = express();
@@ -33,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/profile', profile);
 app.use('/signup', signup);
 app.use('/trips', trips);
-app.use('/index', index);
 app.use('/admin', admin);
 app.use('/logout', logout)
 app.use('/', login);

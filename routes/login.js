@@ -34,7 +34,6 @@ router.post('/', (req, res, next) => {
           return setTokens(returnedData[0])
         })
         .then((role) => {
-          // console.log(role);
           res.cookie('session', role[1]);
           res.cookie('role', role[2]);
           res.status(200).send(true)
