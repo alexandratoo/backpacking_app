@@ -37,10 +37,10 @@ exports.seed = function(knex, Promise) {
               },
               {
                 id: 5,
-              first_name: 'Sofia',
-              last_name: 'Torres',
-              photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
-              email: "sofiatorres@mail.com",
+              first_name: 'Flavor',
+              last_name: 'Lord',
+              photo: './images/FlavorLord (1).png',
+              email: "guyfieri@mail.com",
               role_id: 1
             },
             {

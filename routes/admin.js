@@ -18,43 +18,17 @@ router.get('/', function(req, res, next) {
       .then((tripsFromKnex) => {
         let trips = tripsFromKnex;
         let tripIds = tripsFromKnex.map(el => el.id);
-        console.log(tripIds);
         return Promise.all(tripIds.map((id, index) => {
-          return knex.raw(`select users.*, trips_users.trip_id from trips_users join users on trips_users.user_id = users.id where trips_users.trip_id = ${id};`)
+          return knex.raw(`select users.*, trips_users.trip_id from trips_users join users on trips_users.user_id = users.id where trips_users.trip_id = ${id} order by users.id asc;`)
           .then((thisTrip) => {
             thisTrip.trip = trips[index];
             return thisTrip;
           })
         }))
-        // let users = []
-        // for (let i = 1; i < tripsFromKnex.length + 1; i++) {
-        //   users[i] = '';
-        //   knex.raw(`select users.*, trips_users.trip_id from trips_users join users on trips_users.user_id = users.id where trips_users.trip_id = ${i};`)
-        //   .then((data) => {
-        //     // console.log(data);
-        //     users.push(data.rows)
-        //     console.log('users', users);
-        //   })
-        // }
-        // knex.raw('select users.*, trips_users.trip_id from trips_users join users on trips_users.user_id = users.id where trips_users.trip_id = 3;')
-        // return [trips, users]
       })
       .then((data) => {
-        console.log(data[0].rows);
-        // let tripData = [];
-        // let userData = [];
-        // data.forEach(el => {
-        //   tripData.push(el.trip)
-        //   userData.push(el.rows)
-        // })
         res.render('admin', {
           trips: data
-          // tUsers1: userData[0],
-          // tUsers2: userData[1],
-          // tUsers3: userData[2],
-          // tUsers4: userData[3],
-          // tUsers5: userData[4],
-          // tUsers6: userData[5]
         })
       })
     }
