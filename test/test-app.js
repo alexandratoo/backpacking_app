@@ -63,7 +63,7 @@ describe('PUT /', () => {
 
 
 });
-//
+
 describe('DELETE /', () => {
 
     it('responds with html', done => {
@@ -82,21 +82,3 @@ describe('DELETE /', () => {
     });
 
 });
-//
-// describe('DELETE /trips_users/1', () => {
-//
-//     it('responds with JSON', done => {
-//         request(app)
-//             .delete('/trips_users/1')
-//             .send('/trips_users/1')
-//             .expect('Content-Type', /json/)
-//             .expect(200, done);
-//     });
-//
-//     it('deletes the trip in the database', done => {
-//         request(app)
-//             .delete('/trips_users/1')
-//             .send('/trips_users/1')
-//             .expect(404, done);
-//     });
-// })
