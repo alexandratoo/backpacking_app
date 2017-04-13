@@ -8,7 +8,7 @@ $(document).ready(function() {
                 console.log(auth2);
                 auth2.signOut().then(function() {
                     auth2.disconnect();
-                    document.location = '/'
+                    document.location = '/logout'
                 });
             })
         });

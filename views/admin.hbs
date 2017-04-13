@@ -199,15 +199,6 @@
                   </div>
                 </div><br>
 
-                <div class="form-group row">
-                  <label class="col-sm-6" for="numberOfPeople">Attendees</label>
-                  <div class="col-sm-6">
-                    {{#trip.rows}}
-                    <p>{{this.trip.first_name}}</p>
-                    {{/trip.rows}}
-                    <input name="numberOfPeople" type="text" class="form-control" value="{{this.trip.numberOfPeople}}" id="{{this.trip.numberOfPeople}}" disabled>
-                  </div>
-                </div><br><br>
               </div>
               <br>
               <button class="grnBtn btn-success updateButton">Update Trip</button>
@@ -221,7 +212,8 @@
 </main>
 
 <footer class="footer">
-    <p class="footText text-right">&copy; TRIP-TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
+  <a class="navbarTitle" href="./admin">TRIP-TRAK</a>
+  <p class="footText text-right">&copy; TRIP-TRAK Crew (Kevin Seagraves, Ryan Frazier, Sandra Tooley, Tim Cutter) </p>
 </footer>
 
   </body>
