@@ -32,12 +32,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/profile', profile);
 app.use('/signup', signup);
-app.use('/trips', trips);
+app.use('/', trips);
 app.use('/index', index);
 app.use('/admin', admin);
 // app.use('/users', users);
 app.use('/google14bb5f30d013ce41.html', googleVerification);
-app.use('/', login);
+app.use('/login', login);
 
 
 // catch 404 and forward to error handler
