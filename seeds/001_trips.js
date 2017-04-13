@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
             return knex('trips').insert([{
                     id: 1,
                     name: 'Havasu Falls',
-                    photo: 'https://cdn.pixabay.com/photo/2014/06/03/06/14/lake-360995__340.jpg',
+                    photo: 'https://i.ytimg.com/vi/zGa2nxrUWvU/maxresdefault.jpg',
                     description: 'Experience the world-renowned turquoise water and plunging falls of Havasupai!  Swim in the refreshing and idyllic pools and waterfalls that characterize Havasu Creek.  Let us take care of everything so you can absorb the magic of this amazing place!',
                     start_date: "2017-04-18",
                     end_date: "2017-04-22",
@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
                 {
                     id: 3,
                     name: 'Sedona',
-                    photo: 'https://s-media-cache-ak0.pinimg.com/736x/7c/0f/0c/7c0f0c2bdb16d759541d2d61fe2cdac8.jpg',
+                    photo: 'http://i.imgur.com/3oBtlXN.jpg?1',
                     description: "Explore the heart of Sedona's stunning Red Rock Canyon Country.  Sleep under the clearest night sky you've ever seen. Enjoy our amazing backcountry cuisine. ",
                     start_date: "2017-05-03",
                     end_date: "2017-05-12",
@@ -36,8 +36,8 @@ exports.seed = function(knex, Promise) {
                 {
                     id: 4,
                     name: 'Mount Ranier',
-                    photo: 'https://cdn.pixabay.com/photo/2013/02/11/10/54/mount-ranier-80477__340.jpg',
-                    description: "This hike begins in the famous Paradise Meadows of Mt. Rainier, a subalpine wonderland of flowers and fragile meadows.  A full day - and a lot of elevation - takes us to Camp Muir, the basecamp for mountaineers aiming to summit Rainier, at over 10,000 feet. If the weather cooperates, we could get views of Mt. Hood, Mt. St. Helens, and Mt. Adams",
+                    photo: 'http://wallpapercave.com/wp/2nCWQD8.jpg',
+                    description: "This hike begins in the famous Paradise Meadows of Mt. Rainier, a subalpine wonderland of flowers and fragile meadows.  A full day - and a lot of elevation - takes us to Camp Muir, the basecamp for mountaineers aiming to summit Rainier, at over 14,000 feet. If the weather cooperates, we could get views of Mt. Hood, Mt. St. Helens, and Mt. Adams",
                     start_date: "2017-10-15",
                     end_date: "2017-10-31",
                     cost: "445",
@@ -56,7 +56,7 @@ exports.seed = function(knex, Promise) {
                 {
                     id: 6,
                     name: 'Kilimanjaro Trek',
-                    photo: 'https://cdn.pixabay.com/photo/2014/05/12/18/17/kilimanjaro-342696__340.jpg',
+                    photo: 'https://www.globalbasecamps.com/assets/uploads/tanzania/kilimanjaro-landscape-large-sunset.jpeg',
                     description: 'Kilimanjaro!!! Join us for an unforgettable hiking adventure on Mount Kilimanjaro! Known as "the Roof of Africa" and towering over its surrounding valleys at an astounding elevation of 19,340 feet, Kilimanjaro is one of the "7 Summits" of the world!',
                     start_date: "2017-07-15",
                     end_date: "2017-07-22",
