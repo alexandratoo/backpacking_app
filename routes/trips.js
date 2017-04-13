@@ -15,20 +15,23 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET)
 router.get('/', function(req, res, next) {
   if (!req.cookies.role) {
     let style = 'display:none';
-    console.log('no cookies');
+    let show = 'Log In to Sign Up'
     knex('trips')
       .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
+      .orderBy('id', 'asc')
       .then((tripsFromKnex) => {
         res.render('trips', {
           trips: tripsFromKnex,
           userId: req.cookies.id,
-          hidden: style
+          hidden: style,
+          show: show
         });
     })
   }
   else {
     knex('trips')
-      .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
+    .select('id', 'name', 'photo', 'start_date', 'end_date', 'cost', 'description', 'numberOfPeople')
+    .orderBy('id', 'asc')
     .then((tripsFromKnex) => {
       res.render('trips', {
         trips: tripsFromKnex,

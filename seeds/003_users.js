@@ -31,16 +31,16 @@ exports.seed = function(knex, Promise) {
                   id: 4,
                 first_name: 'Adam',
                 last_name: 'Rose',
-                photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
+                photo: 'https://static1.squarespace.com/static/54298190e4b0027ed7da9fa3/t/561ffd3ae4b0662b883e75f7/1444937020722/',
                 email: "adamrose@mail.com",
                 role_id: 1
               },
               {
                 id: 5,
-              first_name: 'Sofia',
-              last_name: 'Torres',
-              photo: 'https://static.royalrobbins.com/media/wysiwyg/Royalropes_sepia-padding2.jpg',
-              email: "sofiatorres@mail.com",
+              first_name: 'Flavor',
+              last_name: 'Lord',
+              photo: './images/FlavorLord (1).png',
+              email: "guyfieri@mail.com",
               role_id: 1
             },
             {
