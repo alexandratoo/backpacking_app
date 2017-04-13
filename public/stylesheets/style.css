@@ -457,5 +457,26 @@ footer {
   margin:auto;
   text-align: center;
   margin-right: -290px;
+}
 
+.blurb {
+  color: hsla(155, 50%, 15%, 0.85);
+  font-family: 'Cabin Sketch', arial;
+}
+/*
+.splash {
+  height: 50vw;
+}*/
+
+.splashPic {
+  /*height: 80%*/
+ width: 90%;
+ margin:auto;
+ margin-top: 25px;
+ display:block;
+}
+
+.catch {
+  margin-top: 40px;
+  margin-bottom: -30px;
 }
