@@ -31,7 +31,6 @@ router.post('/', validateCreate, validateEmail, ev(validations.post), (req, res,
             }
             insertUser(userToAdd)
                 .then((data) => {
-                    // console.log(data[0].id, req.body.email);
                     let token = jwt.sign({
                         id: data[0].id
                     }, process.env.JWT_SECRET)
@@ -39,8 +38,6 @@ router.post('/', validateCreate, validateEmail, ev(validations.post), (req, res,
                         httpOnly: true
                     })
                     res.cookie('id', data[0].id)
-                    // May change later. for now redirects to trips
-                    // res.redirect(`users/${data[0].id}`)
                     res.redirect('trips')
                 })
         })
