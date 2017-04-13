@@ -10,6 +10,7 @@ const validations = require('../validations/trips');
 require('dotenv');
 const stripe = require('stripe')(process.env.STRIPE_SECRET)
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (!req.cookies.role) {
@@ -39,18 +40,8 @@ router.get('/', function(req, res, next) {
     })
   }
 });
-//
-// router.get('/:id', (req, res, next) => {
-//   let id = req.params.id
-//   knex('trips')
-//     .where('id', id)
-//     .then((selectedTrip) => {
-//       res.render('index', {
-//         trips: selectedTrip
-//       });
-//     })
-// })
-//
+
+
 router.post('/', (req, res, next) => {
   stripe.customers.create({
     email: req.body.stripeEmail,
