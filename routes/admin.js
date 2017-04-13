@@ -27,8 +27,10 @@ router.get('/', function(req, res, next) {
         }))
       })
       .then((data) => {
+        let newTrip = data.length;
         res.render('admin', {
-          trips: data
+          trips: data,
+          newTrip: newTrip
         })
       })
     }
@@ -45,15 +47,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  delete req.body.id
   knex('trips')
     .returning('*')
     .insert(req.body)
     .then(
-      res.render('admin')
+      res.redirect('admin')
     );
 });
 
 router.put('/', function(req, res, next) {
+  console.log('updating', req.body);
   knex('trips')
     .where('id', req.body.id)
     .returning('*')
