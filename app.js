@@ -32,7 +32,7 @@ app.use('/profile', profile);
 app.use('/signup', signup);
 app.use('/trips', trips);
 app.use('/admin', admin);
-app.use('/logout', logout)
+app.use('/logout', logout);
 app.use('/', login);
 
 
